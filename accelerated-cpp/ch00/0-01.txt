@@ -1,0 +1,3 @@
+3 + 4;
+
+An expression statement that adds the values 3 and 4 and returns an integer.

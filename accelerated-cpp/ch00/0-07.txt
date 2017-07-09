@@ -1,0 +1,11 @@
+No. On the second line of the comment, there is an ending delimiter \* which causes the comment to
+close before the second ending delimiter.
+
+Therefore, the compiler sees this as a complete comment:
+
+    /* This is a comment that extends over several lines
+        because it uses /* and */
+
+And this as invalid code:
+
+    as its starting and ending delimiters */

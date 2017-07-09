@@ -1,0 +1,2 @@
+Yes. Comments created using // only end at newlines, therefore even typing */ will not close the
+comment.

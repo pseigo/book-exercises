@@ -1,0 +1,1 @@
+Yes, it is valid. Nested braces are fine as long as they balance out.

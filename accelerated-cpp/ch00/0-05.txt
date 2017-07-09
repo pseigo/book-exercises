@@ -1,0 +1,2 @@
+No. The function  main  must have a defined scope and the expression statement must be enclosed in
+this scope with braces.
