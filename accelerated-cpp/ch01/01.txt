@@ -1,0 +1,8 @@
+This is valid.
+
+    const std::string hello = "Hello";
+
+
+This is not valid because the addition operator is not defined for string literals, only for variables with the string class type. Therefore, the compiler doesn't know how to handle the operator between ", world" and "!".
+
+    const std::string message = hello + ", world" + "!";

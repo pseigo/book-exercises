@@ -1,0 +1,7 @@
+Yes, this is valid because you're copying the value of a string literal into the varible  exclam  with type  const string.
+
+    const std::string exclam = "!";
+
+
+No, this is not valid for the same reasons as in exercise 01.
+    const std::string message = "Hello" + ," world" + exclam;

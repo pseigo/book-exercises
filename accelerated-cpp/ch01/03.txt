@@ -1,0 +1,1 @@
+Yes, the program (03.cpp) is valid because although  s  appears to be defined in multiple places, each definition is within its own scope. Braces create scope, which keeps variables local to that scope and destroys the variables once the scope is left. 

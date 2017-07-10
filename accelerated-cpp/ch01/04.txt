@@ -1,0 +1,5 @@
+The program is valid because the second time we define  s  , it is within its own scope. Therefore, the variable remains LOCAL to that scope. The variable  s  in the outer scope is unaffected by the inner scope's  s  .
+
+If the outer scope's  s  wasn't const, we would be able to change its value within the inner scope and it would retain that value once the inner scope ends. However, when we define  s  in the outer AND inner scopes, the program sees both variables as completely separate things.
+
+The additional semicolon has no effect. It acts as a null-statement.

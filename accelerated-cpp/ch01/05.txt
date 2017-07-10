@@ -1,0 +1,1 @@
+No, the program is not valid. The right brace on line 11 ends the scope where  x  is defined. On line 12, the program tries to write the variable  x  to the standard output stream. However, because the scope where  x  was defined has already been closed,  x  doesn't exist at this point in the program!
