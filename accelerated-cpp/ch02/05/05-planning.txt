@@ -1,0 +1,39 @@
+|||*
+||***
+|*****
+*******
+
+pyramid height of 4
+
+row 0: 3 spaces, 1 symbol
+row 1: 2 spaces, 3 symbols
+row 2: 1 space, 5 symbols
+row 3: 0 spaces, 7 symbols
+
+spaces = height - (row + 1)
+symbols = row + 2
+
+
+# WITH SPACES
+
+----*
+---*-*
+--*---*
+-*-----*
+*********
+
+pyramid height of 5
+
+row 0: 4 spaces, 1 symbol   5    s1 @ 4
+row 1: 4 spaces, 2 symbols  6    s1 @ 3  s2 @ 5
+row 2: 5 spaces, 2 symbols  7    s1 @ 2  s2 @ 6
+row 3: 6 spaces, 2 symbols  8    s2 @ 1  s2 @ 7
+row 4: 0 spaces, 9 symbols  9
+
+spaces_before = height - (row + 1)
+s! @ spaces_before + 1
+spaces_middle @ > spaces_before + 1 && < characters - 1
+s2 @ characters - 1
+
+only first and last symbols are drawn,
+    everything in between is whitespace.
