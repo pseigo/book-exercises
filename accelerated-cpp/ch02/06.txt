@@ -1,0 +1,11 @@
+int i = 0;
+while (i < 10) {
+    i+= 1;
+    std::cout << i << std::endl;
+}
+
+This program prints the numbers from 1 to 10, including 10. Even though  i  is initialized as 0, and the condition is LESS than 10, we increment the number before printing it out. This is equivalent to using
+
+    std::cout << ++i << std::endl;
+
+because we are incrementing the iterator BEFORE actually accessing it. This effect may or may not be desirable depending on your situation.
