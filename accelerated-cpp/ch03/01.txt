@@ -1,0 +1,11 @@
+"Suppose we wish to find the median of a collection of values. Assume that we have read some of the values so far, and that we have no idea how many values remain to be read. Prove that we cannot afford to discard any of the values that we have read. Hint: One proof strategy is to assume that we can discard a value, and then find values or the unread—and therefore unknown— part of our collection that would cause the median to be the value that we discarded."
+
+I think the main idea is that with means (total average), we're able to just keep a total sum and count and divide them at the end to find the mean. However, median's require you to take the middle value(s). By discarding values, it's likely that you're changing which middle values are used, therefore giving you an incorrect median.
+
+
+
+This post demonstrates the question well using examples.
+http://mathalope.co.uk/2014/07/15/accelerated-c-solution-to-exercise-3-1/
+
+"The point of the exercise is to be sure that the reader understands why it is necessary for an algorithm that computes the median of a collection of values to be able to have access to all of the values at the same time. This access is not necessary for an algorithm that computes the mean, as such an algorithm can store just a running total of the values it has read."
+- A. Koenig (https://www.daniweb.com/programming/software-development/threads/38878/accelerated-c-question-about-an-exercise#post1247029)
