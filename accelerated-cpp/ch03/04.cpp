@@ -1,4 +1,4 @@
-// Write a program to report the length of the longestand shortest  string  in its input.
+// Write a program to report the length of the longest and shortest  string  in its input.
 
 #include <iostream>
 #include <string>
