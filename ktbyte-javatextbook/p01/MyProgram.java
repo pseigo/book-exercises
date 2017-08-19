@@ -23,7 +23,7 @@ public class MyProgram {
         do
         {
             passed = true;
-            
+
             try
             {
                 number = input.nextInt();
