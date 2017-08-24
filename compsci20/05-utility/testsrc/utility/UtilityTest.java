@@ -2,18 +2,10 @@ package utility;
 
 import static org.junit.Assert.*;
 
-//import org.junit.Before;
 import org.junit.Test;
 
 public class UtilityTest {
 
-//	private Utility classUnderTest;
-//	
-//	@Before
-//	public void setUp() throws Exception {
-//		classUnderTest = new Utility();
-//	}
-	
 	@Test
 	public void testRand() {
 		// common case
