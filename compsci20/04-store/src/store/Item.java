@@ -9,4 +9,8 @@ public class Item {
     public Item() {
         quantity = 0;
     }
+
+    public Item(int n) {
+        quanity = n;
+    }
 }
