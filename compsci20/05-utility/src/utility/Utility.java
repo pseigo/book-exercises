@@ -4,8 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Utility {
-    public static int errorTrap(int min, int max) {
-        Scanner in = new Scanner(System.in);
+    public static int errorTrap(Scanner in, int min, int max) {
         int input;
 
         do {
@@ -22,13 +21,11 @@ public class Utility {
                 in.nextLine();
             }
         } while (true);
-        
-        in.close();
+
         return input;
     }
 
-    public static double errorTrap(double min, double max) {
-        Scanner in = new Scanner(System.in);
+    public static double errorTrap(Scanner in, double min, double max) {
         double input;
 
         do {
@@ -46,7 +43,6 @@ public class Utility {
             }
         } while (true);
 
-        in.close();
         return input;
     }
 
@@ -84,8 +80,7 @@ public class Utility {
         return digit;
     }
 
-    public static char getChar() {
-        Scanner in = new Scanner(System.in);
+    public static char getChar(Scanner in) {
         String input = "";
 
         if (in.hasNext()) {
@@ -93,8 +88,7 @@ public class Utility {
             in.close();
             return input.charAt(0);
         }
-        
-        in.close();
+
         return '0'; // no input
     }
 }
