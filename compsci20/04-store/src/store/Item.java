@@ -11,6 +11,6 @@ public class Item {
     }
 
     public Item(int n) {
-        quanity = n;
+        quantity = n;
     }
 }

@@ -31,7 +31,7 @@ public class Main {
             store.printPurchaseMenu();
 
             System.out.println("\nWhat would you like to do?");
-            menuInput = Store.getInput(0, 4);
+            menuInput = Store.getInput(0, store.getItemCount());
 
             if (menuInput != 0) {
                 store.makePurchase(menuInput);

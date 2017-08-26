@@ -31,6 +31,10 @@ public class Store {
         }
     }
 
+    public int getItemCount() {
+        return items.size();
+    }
+
     // TODO pass items as an argument
     private int longestItemLength() {
         int max = 0;
