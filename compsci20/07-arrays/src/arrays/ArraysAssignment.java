@@ -104,15 +104,11 @@ public class ArraysAssignment {
 	}
 	
 	public static void bogosort(int arr[], int maxAttempts) {
-		// already sorted
-		if (isNonDecreasing(arr))
-			return;
-		
-		// sort
 		for (int i = 0; i != maxAttempts; ++i) {
-			shuffle(arr);
 			if (isNonDecreasing(arr))
 				return;
+			else
+				shuffle(arr);
 		}
 		
 		// was not able to sort before reaching maxAttempts
