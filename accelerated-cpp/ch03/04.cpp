@@ -1,9 +1,11 @@
 // Write a program to report the length of the longest and shortest  string  in its input.
 
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
 
+using std::min;     using std::max;
 using std::cout;    using std::cin;     using std::endl;
 using std::string;  using std::vector;
 
@@ -28,20 +30,17 @@ int main()
     }
 
     typedef string::size_type string_sz;
-    string_sz min = words[0].size();
-    string_sz max = words[0].size();
+    string_sz low = words[0].size(), high = low;
 
     for (auto s : words) {
         string_sz size = s.size();
-
-        if (size < min)
-            min = size;
-        if (size > max)
-            max = size;
+        
+        low = min(low, size);
+        high = max(high, size);
     }
 
-    cout << "Longest string: " << max << endl;
-    cout << "Shortest string: " << min << endl;
+    cout << "Longest string: " << high << endl;
+    cout << "Shortest string: " << low << endl;
 
     return 0;
 }
