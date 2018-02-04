@@ -1,6 +1,5 @@
-defmodule M do
-    def main do
-        # anonymous functions
+defmodule Math do
+    def anon_function do
         add_anon = fn(a, b) ->
             a + b
         end
@@ -10,7 +9,9 @@ defmodule M do
         add_anon.(1, 2) # => 3
     end
 
-    # named functions
+    @doc """
+    Adds two integers together.
+    """
     def add(a, b) do
         a + b
     end
