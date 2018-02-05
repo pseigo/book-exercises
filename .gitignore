@@ -86,3 +86,13 @@ local.properties
 .scala_dependencies
 .worksheet
 # Eclipse End
+
+# Elixir
+/_build
+/cover
+/deps
+/doc
+/.fetch
+erl_crash.dump
+*.ez
+*.beam
