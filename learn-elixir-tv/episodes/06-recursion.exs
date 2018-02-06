@@ -19,7 +19,7 @@ defmodule Recursion do
             count
         end
 
-        defp length([_|tail], count) do            
+        defp length([_|tail], count) do
             length(tail, count + 1)
         end
     end
@@ -56,7 +56,7 @@ defmodule Recursion do
         sum = fn(num, acc) ->
             num + acc
         end
-        
+
         reduce(list, sum)
     end
 
