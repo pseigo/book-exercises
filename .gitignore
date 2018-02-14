@@ -29,10 +29,27 @@
 *.out
 *.app
 
+# Elixir
+/_build
+/cover
+/deps
+/doc
+/.fetch
+erl_crash.dump
+*.ez
+*.beam
+
 # Code::Blocks
 *.depend
 *.layout
 *.cbp
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # Eclipse Start
 .metadata
@@ -86,13 +103,3 @@ local.properties
 .scala_dependencies
 .worksheet
 # Eclipse End
-
-# Elixir
-/_build
-/cover
-/deps
-/doc
-/.fetch
-erl_crash.dump
-*.ez
-*.beam
