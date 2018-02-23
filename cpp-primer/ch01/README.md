@@ -10,4 +10,4 @@
 
 ## Page references
 
-- 20: explains behaviours of `Sales_item`
+- 20 | explains behaviours of `Sales_item`
