@@ -1,28 +1,33 @@
 #include <iostream>
-#include "include/Sales_item.h"
+#include "../include/Sales_item.h"
 
-using namespace std;
+using std::cerr;
+using std::cin;
+using std::cout;
+using std::endl;
 
 int main()
 {
-  Sales_item total;
+    Sales_item total;
 
-  if (cin >> total) {
-    Sales_item trans;
-
-    while (cin >> trans) {
-      if (total.isbn() == trans.isbn())
-        total += trans
-      else {
-        cout << total << endl;
-        total = trans;
-      }
+    // TODO: is this too confusing or is it clear enough?
+    if (!(cin >> total)) {
+      cerr << "No data entered." << endl;
+      return -1;
     }
-    cout << total << endl;
-  } else {
-    cerr << "No data entered." << endl;
-    return -1;
-  }
 
-  return 0;
+    // read `Sales_item`s until ISBN does not match. then, print the total
+    Sales_item trans;
+    while (cin >> trans) {
+        if (trans.isbn() == total.isbn()) {
+            total += trans;
+        } else {
+            cout << total << endl;
+            total = trans;
+        }
+    }
+
+    // print final sum once cin reaches an error state
+    cout << total << endl;
+    return 0;
 }
