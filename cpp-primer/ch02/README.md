@@ -18,7 +18,5 @@
 
 ## Page references
 
-- 32: C++ Arithmetic Types
-
-
-left on page 38/39
+- 32 | Table 2.1: C++ Arithmetic Types
+- 40 | Table 2.2: Specifying the Type of a Literal
