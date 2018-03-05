@@ -112,18 +112,18 @@ defmodule Data do
     def structs do
         %{__struct__: ModuleName, ...}
 
-    # Shorthand notation
-    %Person{
-        name: "Peyton Seigo",
-        age: 18
-    }
+        # Shorthand notation
+        %Person{
+            name: "Peyton Seigo",
+            age: 18
+        }
 
-    # Under the hood
-    %{
-        __struct__: Person,
-        name: "Peyton Seigo",
-        age: 18
-    }
+        # Under the hood
+        %{
+            __struct__: Person,
+            name: "Peyton Seigo",
+            age: 18
+        }
     end
 
     @doc """
