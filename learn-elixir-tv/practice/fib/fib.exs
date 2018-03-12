@@ -28,17 +28,17 @@ defmodule TailCall do
   def fib(0), do: 0
   def fib(1), do: 1
 
-  def fib(term) when term >= 0 and is_integer(term) do
-    do_fib({fib(0), fib(1)}, 2, term)
+  def fib(term) when is_integer(term) and term >= 0 do
+    do_fib(fib(0), fib(1), 2, term)
   end
 
   def fib(_), do: {:error, "fibonacci term must be 0 or greater"}
 
-  defp do_fib({prev2, prev1}, term, target) when term == target do
+  defp do_fib(prev2, prev1, term, target) when term == target do
     prev2 + prev1
   end
 
-  defp do_fib({prev2, prev1}, term, target) do
-    do_fib({prev1, prev2 + prev1}, term + 1, target)
+  defp do_fib(prev2, prev1, term, target) do
+    do_fib(prev1, prev2 + prev1, term + 1, target)
   end
 end
