@@ -98,6 +98,9 @@ Enum.take(1..10, 5)
 # => [1, 2, 3, 4, 5]
 ```
 
+> **Note:**
+> `take/2` does not delete or remove elements. It takes part of a list to create a new list. Think of it as literally taking something and running off with it.
+
 # Capture operator
 
 `&` captures or creates an anonynmous function.
