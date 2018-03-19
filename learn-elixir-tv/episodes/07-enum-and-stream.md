@@ -1,6 +1,6 @@
 # Enum
 
-Most Enum functions have this signature: `Enum.functionn(Enumerable, fun)`
+Most Enum functions have this signature: `Enum.function(Enumerable, fun)`
 
 Types which implement enumerable:
 
