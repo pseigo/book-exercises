@@ -68,11 +68,3 @@ IO.puts "\nExercise 3: "
 "07-sample.txt"
 |> MyFile.get_refactored()
 |> IO.inspect
-
-IO.puts "\nNow, for a larger sample with 109,583 unique words!"
-IO.puts "wordlist obtained from: http://www-01.sil.org/linguistics/wordlists/english/\n"
-
-"07-words.txt"
-|> MyFile.get_refactored()
-|> IO.inspect
-# |> Enum.each(&IO.puts/1)
