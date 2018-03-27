@@ -2,12 +2,6 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
-# config/2
-# config :crypto, prefix: "Hello: "
-
-# config/3
-config :crypto, Crypto.Encryptor, prefix: "Encrypted: "
-
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,
@@ -16,11 +10,11 @@ config :crypto, Crypto.Encryptor, prefix: "Encrypted: "
 
 # You can configure your application as:
 #
-#     config :crypto, key: :value
+#     config :component_b, key: :value
 #
 # and access this configuration in your application as:
 #
-#     Application.get_env(:crypto, :key)
+#     Application.get_env(:component_b, :key)
 #
 # You can also configure a 3rd-party app:
 #
@@ -32,5 +26,5 @@ config :crypto, Crypto.Encryptor, prefix: "Encrypted: "
 # by uncommenting the line below and defining dev.exs, test.exs and such.
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
-
-import_config "#{Mix.env}.exs"
+#
+#     import_config "#{Mix.env}.exs"
