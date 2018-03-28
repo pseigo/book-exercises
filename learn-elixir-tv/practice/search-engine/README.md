@@ -39,7 +39,7 @@ Each term is given in this format and put into a list. For example:
 
 An overall score can be calculated for a search term according to the series:
 
-![\sum_{n = 0}^{\infty} \left ( list[n] \cdot \frac{1}{\sqrt{n-1}} \right )](eqn_series.png)
+![\sum_{n = 0}^{\infty} \left ( list[n] \cdot \frac{1}{\sqrt{n+1}} \right )](eqn_series.png)
 
 _`n`_ is the index/day. `list` is the hits by day, the second element in the tuple.
 
