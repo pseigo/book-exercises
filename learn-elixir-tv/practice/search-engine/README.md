@@ -18,11 +18,11 @@ You must write this assignment as a Mix project, complete with ExUnit tests.
 
 ## Given data
 
-You are GIVEN the number of hits for each search term for each day. This data organized in a tuple:
+You are GIVEN the number of searches for each search term for each day. This data organized in a tuple:
 
 `{"search term", [10, 100, 97, 103, ...]}`
 
-The first element in the tuple is the search term as a `string`. The second element is a `list` where the first element is the number of hits today, the second element was the number of hits yesterday, etc.
+The first element in the tuple is the search term as a `string`. The second element is a `list` where the first element is the number of searches today, the second element was the number of searches yesterday, etc.
 
 Each term is given in this format and put into a list. For example:
 
@@ -41,9 +41,9 @@ An overall score can be calculated for a search term according to the series:
 
 ![\sum_{n = 0}^{\infty} \left ( list[n] \cdot \frac{1}{\sqrt{n+1}} \right )](eqn_series.png)
 
-_`n`_ is the index/day. `list` is the hits by day, the second element in the tuple.
+_`n`_ is the index/day. `list` is the searches by day, the second element in the tuple.
 
-Calculate this score for each search term. **Only consider the last 10 days of hit history for each related search term.**
+Calculate this score for each search term. **Only consider the last 10 days of search history for each related search term.**
 
 ## Sorting the search terms
 
