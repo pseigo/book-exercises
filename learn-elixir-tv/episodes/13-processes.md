@@ -86,7 +86,11 @@ pid = spawn(fn -> ... end)
 Process.exit(pid, :kill)
 ```
 
-Tie two processes together with `spawn_link`:
+By default, if a spawned process dies (either by crash, an error, or manually killing it), the spawner will not be notified. It is completely isolated from the rest of the system.
+
+## Linking processes together
+
+Tie two processes together with `spawn_link`. If one process dies, the other will die as well.
 
 ```elixir
 romeo = self
@@ -96,3 +100,33 @@ juliet = spawn_link(fn -> ... end)
 # process we are killing.
 Process.exit(juliet, :kill)
 ```
+
+Process death with the `:trap_exit` flag. The current process will receive an `!EXIT` message when the linked process dies (probably a good idea).
+
+```elixir
+Process.flag(:trap_exit, true)
+juliet = spawn_link(fn -> ... end)
+
+receive do
+  {:EXIT, pid, reason} ->
+    # Revive Juliet?
+end
+```
+
+## Spawn monitor
+
+Monitor spawned processes with `spawn_monitor`. It returns `{pid, ref_to_monitor}`. When the process dies, it sends a `:DOWN` message rather than an `:EXIT` message.
+
+```elixir
+{juliet, _ref} = spawn_monitor(fn -> ... end)
+
+receive do
+  {:DOWN, _ref, :process, pid} ->
+    # Revive Juliet?
+end
+```
+
+## Exercises
+
+1. Examine the `pmap` function for performance--compare it to Enum using different data and see which performs quicker.
+2. Create a long-running process and send it messages.
