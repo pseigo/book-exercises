@@ -1,5 +1,0 @@
-%{
-  "coerce": {:hex, :coerce, "1.0.1", "211c27386315dc2894ac11bc1f413a0e38505d808153367bd5c6e75a4003d096", [:mix], [], "hexpm"},
-  "numbers": {:hex, :numbers, "5.0.1", "449024897ce3b44436f371a483787d7d8acb75ce595fa5537137939a778397e0", [:mix], [{:coerce, "~> 1.0", [hex: :coerce, repo: "hexpm", optional: false]}, {:decimal, "~> 1.3.0", [hex: :decimal, repo: "hexpm", optional: true]}], "hexpm"},
-  "ratio": {:hex, :ratio, "2.2.0", "e40da90e3ae74981dea2d78f23f2960c4d736d8211e756a7131d10c1de2a40fe", [:mix], [{:decimal, "~> 1.3.0", [hex: :decimal, repo: "hexpm", optional: true]}, {:numbers, "~> 5.0.0", [hex: :numbers, repo: "hexpm", optional: false]}], "hexpm"},
-}
