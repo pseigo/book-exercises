@@ -1,20 +1,64 @@
 # Chapter 2 notes
 
-## Notes
+## Data types
 
 - `char` is guaranteed to be big enough to hold any character in the machine's **basic** character set.
-- `wchar_t` is guaranteed to be big enough to hold any character in the machine's largtst **extended** character set.
+- `wchar_t` is guaranteed to be big enough to hold any character in the machine's largest **extended** character set.
 - `signed` types are evenly divided between negative and positive values (where 0 is part of the positive range).
-  - an 8-bit `signed char` is guaranteed to hold values from -128 to 127.
-- assigning out-of-range values to unsigned types: result is remainder of `(value) % (number of vals the type can hold)`.
-  - therefore, assigning -1 to an unsigned 8-bit `unsigned char` gives that object the value 255.
-- assigning out-of-range values to signed types is undefined.
-- signed values are automatically converted to `unsigned` in an arithmetic expression with both an unsigned and a signed value
+  - An 8-bit `signed char` is guaranteed to hold values from -128 to 127.
+- Assigning out-of-range values to unsigned types: result is remainder of `(value) % (number of vals the type can hold)`.
+  - Therefore, assigning -1 to an unsigned 8-bit `unsigned char` gives that object the value 255.
+- Assigning out-of-range values to signed types is undefined.
+- Signed values are automatically converted to `unsigned` in an arithmetic expression with both an unsigned and a signed value
 
-### Best practices
+## Note about pointers and `constexpr` (67)
 
-- use an `unsigned` type when you know that the values cannot be negative.
-- do not use plain `char` or `bool` in arithmetic expressions. if you need a tiny integer, expliticly use `signed char` or `unsigned char`. don't use `char` because its representation is NOT defined by the standard!
+"It is important to understand that when we define a pointer in a `constexpr` declaration, the `constexpr` specifier applies to the pointer, not the type to which the pointer points. `constrexpr` imposes a **top-level `const`**:"
+
+```c++
+const int *p = nullptr;     // p is a pointer to a const int
+constexpr int *q = nullptr; // q is a const pointer to int
+```
+
+## Declaration terminology
+
+- Base type: `int`, `double`, `string`, etc.
+- Type modifier: `*`, `&`
+
+## Details on `const`
+
+- 2.4/60: `const` variables in multiple files. _"To share a `const` object among multiple files, you must define the variable as `extern`."_
+
+### Pointers, `const`, and Type Aliases (2.5.1/68)
+
+The **const qualifier** modifies a given type:
+
+```c+++
+typedef char *pstring;
+const pstring cstr = 0; // cstr is a constant pointer to char
+const pstring *ps       // ps is a pointer to a constant pointer to char
+
+// correct interpretation of const pstring cstr
+char *const cstr = 0;
+
+// wrong interpretation of const pstring cstr
+const char *cstr = 0;
+```
+
+Here's an explanation broken down:
+
+- The base type in these declarations is `const pstring`.
+- The type of `pstring` is "pointer to `char`".
+- Because `const` modifies a given type, it becomes a **constant pointer to `char`**.
+
+## Best practices
+
+- Use an `unsigned` type when you know that the values cannot be negative.
+- Do not use plain `char` or `bool` in arithmetic expressions. if you need a tiny integer, expliticly use `signed char` or `unsigned char`. don't use `char` because its representation is NOT defined by the standard!
+- 2.3.3/57 Style of Compound Type Declarations: Write **type modifiers** next to their variable, not the type they modify. (my opinion)
+  - DO: `int *p1, *p2; // both p1 and p2 are pointers to int`
+  - DON'T: `int* p1, p2; // p1 is a pointer to int, p2 is an int`
+- 2.4.4/66 `constexpr` Variables: _"Generally, it is a good idea to use `constexpr` for variables that you intend to use as constant expressions."_
 
 ## Page references
 
