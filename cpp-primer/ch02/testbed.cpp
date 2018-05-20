@@ -1,22 +1,26 @@
 #include <iostream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
 int main()
 {
-    string str = "Hello, World!";
+    // grades and "buckets" for scores
+    vector<unsigned> grades = {42, 65, 95, 100, 39, 67, 95, 76, 88, 76, 83, 92, 76, 93};
+    vector<unsigned> scores(11, 0);
 
-    // Using the type that str.size() returns
-    auto size1 = str.size();
+    for (const unsigned &grade : grades) {
+        // IMPORTANT! handle only valid grades
+        if (grade <= 100) {
+            ++scores[grade / 10];
+        }
+    }
 
-    // Explicitly using the type
-    string::size_type size2 = str.size();
+    // print scores
+    for (const int &i : scores) {
+        cout << i << ' ';
+    }
 
-    // Using a synonym for the explicit type
-    typedef string::size_type str_sz;
-    str_sz size3 = str.size();
-
-    // Using the type that str.size() returns
-    decltype(str.size()) size4 = str.size();
     return 0;
 }

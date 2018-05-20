@@ -51,32 +51,7 @@ Here's an explanation broken down:
 - The type of `pstring` is "pointer to `char`".
 - Because `const` modifies a given type, it becomes a **constant pointer to `char`**.
 
-## Reading into a `string`
 
-- `is >> s`: Reads whitespace-separated string from `is` into `s`. Returns `is`.
-- `getline(is, s)`: Reads a line of input from `is` into `s`. Returns `is`.
-  - `s` must be a `string`.
-  - Does not ignore whitespace.
-  - Reads up to (not including) the first newline `\n` character or EOF (end-of-file) or invalid input.
-
-## Ways to use `string::size_type`
-
-```c++
-string str = "Hello, World!";
-
-// Using the type that str.size() returns
-auto size1 = str.size();
-
-// Explicitly using the type
-string::size_type size2 = str.size();
-
-// Using a synonym for the explicit type
-typedef string::size_type str_sz;
-str_sz size3 = str.size();
-
-// Using the type that str.size() returns
-decltype(str.size()) size4 = str.size();
-```
 
 ## Best practices
 
@@ -86,12 +61,8 @@ decltype(str.size()) size4 = str.size();
   - DO: `int *p1, *p2; // both p1 and p2 are pointers to int`
   - DON'T: `int* p1, p2; // p1 is a pointer to int, p2 is an int`
 - 2.4.4/66 `constexpr` Variables: _"Generally, it is a good idea to use `constexpr` for variables that you intend to use as constant expressions."
-- 3.2.2/88: "You can avoid problems  due to conversion between `unsigned` and `int` by not using `int`s in expressions that use `size()`."
-  - In `n` is a negative integer, `s.size() < n` will almost surely evaluate to true. `n` will be implicitly converted to `unsigned` and wrap around to a very large positive number.
 
 ## Page references
 
 - 32 | Table 2.1: C++ Arithmetic Types
 - 40 | Table 2.2: Specifying the Type of a Literal
-- 85 | Table 3.1: Ways to Initialize a `string`
-  - Copy initialization & direct initialization
