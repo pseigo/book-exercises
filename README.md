@@ -17,4 +17,5 @@ Solutions for programming book exercises.
   - _CSE3320, Dynamic Data Structures 1_
   - _CSE3330, Dynamic Data Structures 2_
   - _CSE3910, CSE Project D_ ([Arduino Pomodoro Study Timer](https://github.com/pseigo/arduino-pomodoro))
+- CPSC 110 (University of British Columbia)
 - [LearnElixir.tv](https://www.learnelixir.tv/) _by Daniel Berkompas_
