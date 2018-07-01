@@ -3,6 +3,8 @@
         "array": "cpp",
         "hash_map": "cpp",
         "initializer_list": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp"
     }
 }

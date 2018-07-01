@@ -34,9 +34,9 @@ Example from 3.4.1/107:
 ```c++
 string s("some string");
 
-if (s.begin() != s.end())/ {    // make sure `s` is not empty
-    auto it = s.begin();        // `it` denotes the first character in `s`
-    *it = toupper(*it);         // make that character uppercase
+if (s.begin() != s.end()) { // make sure `s` is not empty
+    auto it = s.begin();    // `it` denotes the first character in `s`
+    *it = toupper(*it);     // make that character uppercase
 }
 ```
 
@@ -67,6 +67,6 @@ Because `begin` and `end` return an interator based on whether the collecton's e
 
 ## Page references
 
-- 85 | Table 3.1: Ways to Initialize a `string`
+- **85** | Table 3.1: Ways to Initialize a `string`
   - Copy initialization & direct initialization
-- 111 Iterator arithmetic | Table 3.7: Operations Supported by `vector` and `string` Iterators
+- **111 Iterator arithmetic** | Table 3.7: Operations Supported by `vector` and `string` Iterators
