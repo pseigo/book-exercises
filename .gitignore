@@ -103,3 +103,14 @@ local.properties
 .scala_dependencies
 .worksheet
 # Eclipse End
+
+# Racket: common backups, autosaves, lock files, OS meta-files
+*~
+\#*
+.#*
+.DS_Store
+*.bak
+TAGS
+*.swn
+*.swo
+*.swp
