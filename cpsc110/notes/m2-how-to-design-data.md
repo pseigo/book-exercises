@@ -21,6 +21,7 @@
 - **cond**: expression that has different behaviour based on any number of predicates
 - **`#;`**: comments out the entire expression or definition that follows the `#;`
 - **`()` and `[]` are equivalent**: `[]` is used with `cond` cases by convention for clarity
+- **`Integer[0, 33)`**: a range of `Integer`s from `0` (inclusive) to 33 (non-inclusive)
 
 ## Other notes
 - For now, the template for a function is determined by the type of data it consumes (i.e. the template of a data definition)
