@@ -1,2 +1,2 @@
 # BSL files with images are MASSIVE.
-cpsc110/**.rkt linguist-vendored
+cpsc110/**/**.rkt linguist-vendored
