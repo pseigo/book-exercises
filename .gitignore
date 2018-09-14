@@ -114,3 +114,7 @@ TAGS
 *.swn
 *.swo
 *.swp
+
+# CPSC 110
+/cpsc110/problem-sets
+/cpsc110/labs
