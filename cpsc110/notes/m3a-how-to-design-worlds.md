@@ -21,6 +21,16 @@ World program design is divided into two phases, each of which has sub-parts:
         2. wish list entriesfor big-bang handlers
     4. Work through wish list until done
 
+## Working through the recipe
+
+- `empty-scene` is a primitive that allows you to create a background
+- HtDD
+    - It is important to state units in the interpretation
+- HtDF
+    - It is a good idea to use the world constants in `check-expect`s over "magic values"
+- HtDW
+    - Work on this process until the flow from one recipe to the next is SECOND NATURE!
+
 ## Notes
 
 Interactive behaviour is generally defined as:
@@ -29,7 +39,7 @@ Interactive behaviour is generally defined as:
 - changing display
 - keyboard and/or mouse affects behaviour
 
-
 ## Terminology
+
 - `big-bang` is **polymorphic**: it can work for any type of world state
   - an interface that works for many different types of data
