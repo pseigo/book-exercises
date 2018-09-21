@@ -18,18 +18,23 @@ World program design is divided into two phases, each of which has sub-parts:
     2. Data definitions using HtDD (based on 1.3 above)
     3. Functions using HtDF
         1. main first (based on 1.3, 1.4 and 2.2 above)
-        2. wish list entriesfor big-bang handlers
+        2. wish list entries for big-bang handlers
     4. Work through wish list until done
 
 ## Working through the recipe
 
 - `empty-scene` is a primitive that allows you to create a background
 - HtDD
-    - It is important to state units in the interpretation
+  - It is important to state units in the interpretation
 - HtDF
-    - It is a good idea to use the world constants in `check-expect`s over "magic values"
+  - Use the world constants in `check-expect`s
+    - Clarity + correctness if constants change
+  - Using named constants provides a "single point of control"
 - HtDW
-    - Work on this process until the flow from one recipe to the next is SECOND NATURE!
+  - Work on this process until the flow from one recipe to the next is SECOND NATURE!
+  - **Wish list entry**: a big-bang handler's signature, purpose, `!!!`, and stub
+  - The domain analysis is a **model** of the program
+    - Improve program by marking up analysis
 
 ## Notes
 
