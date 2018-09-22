@@ -24,12 +24,15 @@ World program design is divided into two phases, each of which has sub-parts:
 ## Working through the recipe
 
 - `empty-scene` is a primitive that allows you to create a background
-- HtDD
-  - It is important to state units in the interpretation
 - HtDF
   - Use the world constants in `check-expect`s
     - Clarity + correctness if constants change
   - Using named constants provides a "single point of control"
+  - **Large enumeration rule** (i.e. `KeyEvent`)
+    - only include `cond` cases the function cares about
+    - other cases are handled by an `else`
+- HtDD
+  - It is important to state units in the interpretation
 - HtDW
   - Work on this process until the flow from one recipe to the next is SECOND NATURE!
   - **Wish list entry**: a big-bang handler's signature, purpose, `!!!`, and stub
