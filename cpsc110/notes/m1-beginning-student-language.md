@@ -1,8 +1,16 @@
-#  M1: Beginning Student Language
+---
+title: "Module 1: Beginning Student Language"
+subtitle: "CPSC 110"
+author: [Peyton Seigo]
+date: "2018-09-13"
+titlepage: true
+---
+
+# Module 1: Beginning Student Language
 
 - **Expression**: a value, primitive call, control structure; evalutes to a value
 - **Primitive call, or "call to primitive"**: expression with an operator and operand(s)
-  - `(<id> <expr>* )` where the number of `‹expr›`s determines the number of arguments supplied to the function named by `‹id›`.
+  - `(<id> <expr>* )` where the number of `<expr>`s determines the number of arguments supplied to the function named by `<id>`.
   - Composed of a _function identifier_ (a primitive) and one or more _expressions_
   - Evaluation: first reduce operands to values, then apply primitive to values
   - "_call to string/image/number primitive_", based on parameter type

@@ -2,7 +2,7 @@
 title: "Module 3b: Compound Data"
 subtitle: "CPSC 110"
 author: [Peyton Seigo]
-date: "2018-09-19"
+date: "2018-09-21"
 titlepage: true
 ---
 
