@@ -1,4 +1,12 @@
-# M3A: How to Design worlds
+---
+title: "Module 3a: How to Design Worlds"
+subtitle: "CPSC 110"
+author: [Peyton Seigo]
+date: "2018-09-19"
+titlepage: true
+---
+
+# Module 3a: How to Design Worlds
 
 - Be able to explain the inherent structure of interactive graphical programs.
 - Be able to use the How to Design Worlds (HtDW) recipe to design interactive programs with atomic world state.
