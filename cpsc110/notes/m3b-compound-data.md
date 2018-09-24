@@ -29,4 +29,26 @@ titlepage: true
     - `(define S1 (<struct-name> x y))`
     - `x` and `y` set values for the field names
 
+Data definition example:
+
+```racket
+(@HtDD Movie)
+(define-struct movie (title budget year))
+;; Movie is (make-movie String Natural Natural)
+;; interp. metadata for a movie
+;;         title is the movie's title
+;;         budget is the movie's production budget
+;;         year is the year the movie was released
+(define M-TITANTIC (make-movie "Titantic" 200000000 1997))
+(define M-ELEMENT (make-movie "The Fifth Element" 90000000 1997))
+(define M-AVATAR (make-movie "Avatar" 237000000 2009))
+(define M-AVENGERS (make-movie "The Avengers" 220000000 2012))
+
+(@dd-template-rules compound)
+(define (fn-for-movie m)
+  (... (movie-title m)    ; String
+       (movie-budget m)   ; Natural
+       (movie-year m)))   ; Natural
+```
+
 ## Terminology
