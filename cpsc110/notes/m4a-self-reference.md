@@ -31,7 +31,7 @@ titlepage: true
 The primitive `cons` is a two element constructor that constructs a list:
 
 ```racket
-(cons x y) → list?
+(cons x y) -> list?
   x : any/x
   y : list?
 ```
