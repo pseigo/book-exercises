@@ -19,7 +19,11 @@ titlepage: true
 ## Terminology
 
 - **Reference relationship**: data definition that refers to a different type of data (that's not primitive!)
-- **Natural helper**: when a data definition using natural recursion is actually a list of ANOTHER type of data, we have to include a function like `(fn-for-item)` in our template. This function call is called the natural helper.
-  - this function call is written due to the `ref`erence rule!
-  - When writing a function (HtDF) with a natural helper, we MUST create a **helper function**.
-    - Make a wish list entry! HtDF tag, signature, purpose, stub, and `!!!`
+- **Reference rule**: for data definitions with a reference to another data definitions that you've defined
+  - Rule: must wrap calls to referenced definition in that definition's template function (called a **natural helper**)
+- **Natural helper**: a referenced data definition's template function due to the reference rule
+  - A natural helper in a template says "do something complicated in a helper function that consumes the referred to type. do NOT do it here!"
+  - HtDF: create a **helper function** for the natural helper
+    - wish list entry: `@HtDF`, `@signature`, purpose, stub, and `!!!`
+- **Helper function**: actual function written when doing HtDF
+- **complicated? rule**: if it would take more than 1 function that operates on the referenced type, make a helper function instead.
