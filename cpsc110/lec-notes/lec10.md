@@ -20,7 +20,7 @@ titlepage: true
 - **Self-reference**: the relationship between an itemization's case that refers to the data definition itself and the data definition
 - **Natural recursion**: the relationship within a self-referencing data type's template where the template actually refers to itself!
   - i.e. a template's function named `fn-for-los` will call itself within its own definition using `(fn-for-los (rest los))`
-- i.e. self-reference refers to the data definition, natural recursion applies to a function that uses that type of data
+- Self-reference refers to the data definition, natural recursion applies to a function that uses that type of data
 - If you're having trouble understanding recursion, there are great videos on youtube by ComputerPhile and the like explaining this concept. They won't be using Racket if they're using code, however, which may be confusing. Therefore, focus on the concept of recursion.
 - Natural recursion for `positive-only`
   - Main idea: Throw away negative values. Add positive values to the rest of the list.

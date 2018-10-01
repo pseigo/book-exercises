@@ -30,12 +30,19 @@ titlepage: true
 
 - **Arbitrary-sized information**: information that we don't know the size of in advance.
   - _A program that can display any number of cows is operating with abitrary-sized information._
+- **Self-reference**: the relationship between an itemization's case that refers to the data definition itself and the data definition
+  - Causes Natural Recursion in template
 - **Well-formed self referential data definition**:
   - At least one base case (allows self referential case to end)
   - At least one self referential case
 - **Self reference rule**: if an itemization data definition has a `one-of` case that refers to itself, put a natural recursion in the template that corresponds to the self-reference in the type comment
   - `@dd-template-rules` rule is called `self-ref`
-- **Natural recursion**: when a function calls itself
+- **Natural recursion**: the relationship within a self-referencing data type's template where the template actually refers to itself!
+  - i.e. a template's function named `fn-for-los` will call itself within its own definition using `(fn-for-los (rest los))`
+  - Caused by self-reference rule
+
+
+
 
 
 ## The `cons` primitive
