@@ -33,15 +33,12 @@ titlepage: true
 - **Well-formed self referential data definition**:
   - At least one base case (allows self referential case to end)
   - At least one self referential case
-- **Natural recursion**:
-- **Reference relationship**: data definition that refers to a different type of data (that's not primitive!)
-- **Natural helper**: when a data definition using natural recursion is actually a list of ANOTHER type of data, we have to include a function like `(fn-for-item)` in our template. This function call is called the natural helper.
-  - this function call is written due to the `ref`erence rule!
-  - When writing a function (HtDF) with a natural helper, we MUST create a **helper function**.
-    - Make a wish list entry! HtDF tag, signature, purpose, stub, and `!!!`
+- **Self reference rule**: if an itemization data definition has a `one-of` case that refers to itself, put a natural recursion in the template that corresponds to the self-reference in the type comment
+  - `@dd-template-rules` rule is called `self-ref`
+- **Natural recursion**: when a function calls itself
 
 
-## Cons
+## The `cons` primitive
 
 The primitive `cons` is a two element constructor that constructs a list:
 
@@ -53,20 +50,22 @@ The primitive `cons` is a two element constructor that constructs a list:
 
 `cons` can be used to produce lists with more than one type of data; but we will not do that (our data definitions do not let us talk about that very well).
 
+## Other primitives that operate on lists
+
 Lists have functions that are SIMILAR to `struct` selectors:
 
 - `(first <list>)`: first element in list
 - `(rest <list>)`: list with front popped off
   - _Note: `rest` expects a non-empty list_
-- `(first (rest L2))`: produces element in `<list>`
-  - pops element off the front of `L2`, then gets the first element in the new list
-  - `(second <list>)` also exists, but popping and getting the first element as shown above is VERY useful in things like recursion and using accumulators! It's mostly useful because the procedure is generalized.
+  - `(first (rest L2))`: produces element in `<list>`
+    - pops element off the front of `L2`, then gets the first element in the new list
+    - `(second <list>)` also exists, but popping and getting the first element as shown above is VERY useful in things like recursion and using accumulators! It's mostly useful because the procedure is generalized.
 - `(empty? <list>)`: produce true if argument is the empty list
 - `(length <list>)`: evaluates number of items on a list
 
-## ListOfX
+## ListOfPrimitive
 
-Here's what a "ListOfX" data definition looks like:
+Example of a "ListOfPrimitive" data definition:
 
 ```racket
 (require spd/tags)
@@ -82,7 +81,8 @@ Here's what a "ListOfX" data definition looks like:
 
 (@dd-template-rules one-of          ; 2 cases
                     atomic-distinct ; empty
-                    compound)       ; (cons Number ListOfNumber)
+                    compound        ; (cons Number ListOfNumber)
+                    self-ref)       ; (rest lon) is ListOfNumber
 (define (fn-for-lon lon)
     (cond [(empty? lon) (...)]
           [else

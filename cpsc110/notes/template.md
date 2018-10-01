@@ -8,7 +8,9 @@ titlepage: true
 
 # Module x: Title
 
-- learning goals
+## Learning goals
+
+- x
 
 ## Notes
 

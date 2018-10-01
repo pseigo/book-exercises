@@ -51,4 +51,25 @@ Data definition example:
        (movie-year m)))   ; Natural
 ```
 
+and a function implementing `Movie`:
+
+```racket
+(@HtDF budget?)
+(@signature Movie -> Boolean)
+;; produce true if movie's budget is < 100 000 000 (USD)
+(check-expect (budget? M-TITANTIC) false)
+(check-expect (budget? M-ELEMENT) true)
+(check-expect (budget? (make-movie "Moonrise Kingdom"
+                                   16000000
+                                   2012))
+              true)
+
+;(define (budget? m) false) ; stub
+
+(@template Movie)
+(define (budget? m)
+    (< (movie-budget m)
+       100000000))
+```
+
 ## Terminology
