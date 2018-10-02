@@ -2,7 +2,7 @@
 title: "Lecture 12"
 subtitle: "CPSC 110"
 author: [Peyton Seigo]
-date: "2018-MM-DD"
+date: "2018-10-01"
 titlepage: true
 ---
 

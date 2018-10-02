@@ -19,8 +19,11 @@ titlepage: true
 
 ## Notes
 
+- Lists
+  - A list is an itemization containing `atomic-distinct` and `compound` data.
+  - Lists are **self referential**.
 - The self-reference template rule puts a natural recursion in the template that corresponds to the self-reference in the type comment.
-  - _The `dd-template-type` is called `self-reference`_
+  - _The `dd-template-type` is called `self-ref`_
 - `(check-expect)`s for lists
   - Examples shold include base and self-referential cases.
   - Have one or more tests with a list of 2 or more elements
@@ -40,10 +43,6 @@ titlepage: true
 - **Natural recursion**: the relationship within a self-referencing data type's template where the template actually refers to itself!
   - i.e. a template's function named `fn-for-los` will call itself within its own definition using `(fn-for-los (rest los))`
   - Caused by self-reference rule
-
-
-
-
 
 ## The `cons` primitive
 
@@ -70,9 +69,9 @@ Lists have functions that are SIMILAR to `struct` selectors:
 - `(empty? <list>)`: produce true if argument is the empty list
 - `(length <list>)`: evaluates number of items on a list
 
-## ListOfPrimitive
+## Lists containing primitive data
 
-Example of a "ListOfPrimitive" data definition:
+Example of a list data definition containing primitive data:
 
 ```racket
 (require spd/tags)
