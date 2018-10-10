@@ -29,7 +29,7 @@ New rules:
 
 When we design more complicated functions, we design many helper functions using the different rules to divide the work of the main function.
 
-### Function composition
+### Function Composition
 
 - For the first, top-level function, if function composition is needed, **discard the entire template**
   - The new template tag is `(@template fn-composition)`
@@ -38,9 +38,9 @@ When we design more complicated functions, we design many helper functions using
   - Tests do not need to fully exercise the child functions; but they do need to exercise the **combination** of the functions
   - Base cases do not need to be tested
 
-### Operating On a List Rule
+### Operating On Arbitrary Sized Data
 
-- **Operating On a List rule**: if a function needs to operate on an entire list--and not just the first element--you need to use a (recursive) helper function.
+- If a function needs to operate on an entire list--and not just the first element--you must create a (recursive) helper function.
 - Sometimes the signature can't say everything that matters about the consumed data. In those cases we can write an **assumption** as part of the function design.
 - Trust the natural recursion
   - Assume that the RESULT self-reference function call WILL produce what it's supposed to.
