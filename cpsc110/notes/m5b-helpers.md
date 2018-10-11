@@ -69,15 +69,13 @@ In the context of the video example, `insert` has a knowledge domain shift:
    larger
 ```
 
-### Overview
-
 - `arrange-images`: function composition, causes
   - `layout-images`
   - `sort-images`: operate on arb-sized data, causes
     - `insert`: knowledge domain shift, causes
       - `<area>?`
 
-### Other notes
+Notes about these functions:
 
 - sort-images inserts the first element of the list into the rest of the **sorted** list (non-decreasing by size/area)
 - insert assumes that `lst` is sorted and inserts `image` in it's proper place,
@@ -85,10 +83,10 @@ In the context of the video example, `insert` has a knowledge domain shift:
 ## Other notes
 
 - In larger programs, tests and constants would be in a separate file
-- Functions with additional atomic parameters (`add-param`)
+- Functions with additional atomic parameters (`add-param`):
   - _"Note that when designing functions that consume additional atomic parameters, the name of that parameter gets added after every `...` in the template. Templates for functions with additional complex parameters are covered in Functions on 2 One-Of Data."_
 
-### Example for `add-param`
+### What an `add-param` template looks like
 
 Before adding an atomic parameter:
 
