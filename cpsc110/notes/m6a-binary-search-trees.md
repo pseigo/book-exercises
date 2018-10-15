@@ -30,10 +30,15 @@ Binary Search Trees:
   - ALL nodes in right sub-tree have a value greater than the parent
 - These rules are invariant; holds true ALL the way down a branch!
 
+Functions using a BST
+
+- Some function may produce `Type or false`.
+  - `lookup-key`, a function that searches for a node with a particular key and returns the node's value, may not find the node.
+  - Signature for `lookup-key` is `BST Natural -> String or false`
+
 ### Testing a BST
 
 - We have 2 self-reference cases, so our check-expects should check both cases (i.e. left and right)
-
-## Terminology
-
-- x
+- Just like for lists, tests should test "**2-deep**"
+  - Test all four scenarios for traversing a BST two levels
+  - Left Left, Left Right, Right Left, Right Right
