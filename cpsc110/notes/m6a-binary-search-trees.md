@@ -2,7 +2,7 @@
 title: "Module 6a: Binary Search Trees"
 subtitle: "CPSC 110"
 author: [Peyton Seigo]
-date: "2018-MM-DD"
+date: "2018-10-12"
 titlepage: true
 ---
 
@@ -25,16 +25,15 @@ Linear search:
 
 Binary Search Trees:
 
-- every node has 0, 1, or 2 children
-- ALL nodes in left sub-tree have a value less than the parent
-- ALL nodes in right sub-tree have a value greater than the parent
-  - this rule is invariant; holds true ALL the way down a branch!
+- A binary tree (every node has 0, 1, or 2 children) with the properties:
+  - ALL nodes in left sub-tree have a value less than the parent
+  - ALL nodes in right sub-tree have a value greater than the parent
+- These rules are invariant; holds true ALL the way down a branch!
 
+### Testing a BST
+
+- We have 2 self-reference cases, so our check-expects should check both cases (i.e. left and right)
 
 ## Terminology
 
 - x
-
-## Questions
-
-In terms of time complexity and how things work under the hood, does Racket implement lists similar to linked lists? i.e. is access O(1) or O(n)?
