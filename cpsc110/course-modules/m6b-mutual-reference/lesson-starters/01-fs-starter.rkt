@@ -8,14 +8,13 @@
 
 ;; Data definitions:
 
-(@HtDD Element)
+(@HtDD Element ListOfElement)
 (define-struct elt (name data subs))
 ;; Element is (make-elt String Integer ListOfElement)
 ;; interp. An element in the file system, with name, and EITHER data or subs.
 ;;         If data is 0, then subs is considered to be list of sub elements.
 ;;         If data is not 0, then subs is ignored.
 
-(@HtDD ListOfElement)
 ;; ListOfElement is one of:
 ;;  - empty
 ;;  - (cons Element ListOfElement)

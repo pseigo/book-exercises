@@ -34,6 +34,10 @@ Mutually recursive data: Arbitrary-arity trees
 - The **mutual reference cycle** allows each element (or node) to have an arbitrary number of sub-elements (or children)
   - i.e. allows tree to have arbitrary breadth
   - ONLY _Mutual Reference_ (MR) if both types reference each other. Otherwise, it is just a reference.
+- There are a few "base cases" for this tree for which it stops growing. One or more of these must be the case.
+    1. When an element has non-zero data. That node cannot have children.
+    2. When an element has zero data and an empty list.
+    3. When an element has zero data and a list with elements with non-zero data. The element's children will not have children (no grandchildren for you!).
 
 
 ## Terminology
