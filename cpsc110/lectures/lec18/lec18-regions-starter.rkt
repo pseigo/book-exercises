@@ -1,6 +1,6 @@
 ;; The first three lines of this file were inserted by DrRacket. They record metadata
 ;; about the language level of this file in a form that our tools can easily process.
-#reader(lib "htdp-intermediate-reader.ss" "lang")((modname lec18-regions-starter) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+#reader(lib "htdp-intermediate-reader.ss" "lang")((modname lec18-regions-starter) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #t)))
 (require 2htdp/image)
 (require spd/tags)
 
@@ -42,6 +42,7 @@
 (define LORE empty)
 (define LOR123 (list T1 T2 T3))
 
+(@dd-template-rules one-of compound compound ref)
 (define (fn-for-region r)
   (cond [(terminal? r)
          (... (terminal-label r)
@@ -51,6 +52,7 @@
          (... (terminal-color r)
               (fn-for-lor (group-subs r)))]))
 
+(@dd-template-rules one-of atomic-distinct compound ref self-ref)
 (define (fn-for-lor lor)
   (cond [(empty? lor) (...)]
         [else

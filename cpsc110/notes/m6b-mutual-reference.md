@@ -42,7 +42,7 @@ Learn how to use multiple mutually referential types.
     2. When an element has zero data and an empty list.
     3. When an element has zero data and a list with elements with non-zero data. The element's children will not have children (no grandchildren for you!).
 
-**HTDF for Mutually Recursive Data**
+### HTDF for Mutually Recursive Data**
 
 - We don't design a single function. We design a function for EACH type.
 - Function naming convention: `<base-fn-name>--<data-type>`
@@ -50,14 +50,33 @@ Learn how to use multiple mutually referential types.
   - eg. `sum-data--element` and `sum-data--loe`
   - All functions are named `base-fn-name` because they are **mutually recursive** & require each other to work
 - Functions usually all produce the same data (but there are exceptions)
+- `spd/tags` tags
+  - HtDF tag at top includes all functions
+    - `(@HtDF <fn>--<type1> <fn>--<type2> ... <fn>-<typen>)`
+  - Separate signatures for each functon (both above purpose)
+  - Separate template tags for each function (above each function)
 
-**Why does it work?** Because our method is data-driven, we do all the hard work with our data definitions.
+### Why does it work?** Because our method is data-driven, we do all the hard work with our data definitions.
 
 1. Well-formed, self and mutually referential type comments
 2. Templates support natural mutual recursion (NMR)
 3. Derived functions will
     - have the right structure, and
     - terminate in a base case
+
+### Backtracking
+
+Three main things about backtracking:
+
+1. Signature produces a `Type or false`
+2. Function body of fn. consuming `ListOfX` has:
+    - `(if (not (false? (find--region 1 (first lor)))))`
+    - This "if not false?" pattern is important for generic functions.
+    - We could instead use `region?`, but this would only work for a tree of `region`s.
+3. Backtracking tag: `(if (not (false?` is a structural characteristic of all backtracking problems
+    - Add `backtracking` to each function's template tag
+    - `(@template Region add-param` **`backtracking`**`)`
+    - `(@template ListOfRegion add-param` **`backtracking`**`)`
 
 
 ## Terminology
@@ -66,9 +85,9 @@ Learn how to use multiple mutually referential types.
   - Arbitarily deep: an unknown number of levels
   - Aribitarily "wide": an unknown number of children
 
-## Questions
+## Off-topic Questions
 
-**In Racket**, For a search function, we can produce `data or false` which represents two cases:
+**In Racket**, For a search function, we can produce `Value or false` which represents two cases:
 
 1. Success! We find the key and produce its value.
 2. Failure. We do not find the key and return `false`.
@@ -84,4 +103,4 @@ How might we transfer this to other languages like C++ or Java?
 
 1. Return 0, -1, or some other meaningless value. Give this value meaning where the function is called (i.e. user is responsible for implementation details)
 2. Use an `Enum` to give meaning to arbitrary integers.
-3. Throw an exception.
+3. Throw an exception. (I assume this is the best method)
