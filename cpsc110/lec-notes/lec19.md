@@ -45,13 +45,13 @@ Template
 ```racket
 (@template 2-one-of)
 (define (contains? lon1 lon2)
-        (cond [(empty? lon1) (...)]
-              [(empty? lon2) (...)]
-              [else
-               (... (first lon1)
-                    (rest lon1)
-                    (contains? (first lon2)
-                               (rest lon2)))]))
+  (cond [(empty? lon1) (...)]
+        [(empty? lon2) (...)]
+        [else
+         (... (first lon1)
+              (rest lon1)
+              (contains? (first lon2)
+                         (rest lon2)))]))
 ```
 
 Creating the `cond`

@@ -22,7 +22,7 @@ titlepage: true
 
 Example for `ListOfString ListOfString -> x`:
 
-| los1 (right) los2 (down) | empty | (cons String ListOfString) |
+| **los1 (right) los2 (down)** | **empty** | **(cons String ListOfString)** |
 |-|-|-|
 | **empty** | both lists are empty | los1 is not empty, but los2 is empty |
 | **(cons String ListOfString)** | los1 is empty, but los2 is not empty | both lists are not empty |
