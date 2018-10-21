@@ -24,11 +24,16 @@ Example for `ListOfString ListOfString -> x`:
 
 | **los1 (right) los2 (down)** | **empty** | **(cons String ListOfString)** |
 |-|-|-|
-| **empty** | both lists are empty | los1 is not empty, but los2 is empty |
-| **(cons String ListOfString)** | los1 is empty, but los2 is not empty | both lists are not empty |
+| **empty** | true | false |
+| **(cons String ListOfString)** | true | and firsts are equal; natural recursion |
 
 In the video, we only had one test for each box, except for the bottom right. For "both lists are not empty," we generated several more tests to satisfy **2-deep**, los1 longer than los2, los1 shorter than los2, and a few more conditions where the function passes or fails with 2 or 3 deep lists.
 
-## Terminology
+## Models
 
-- x
+- Type comments predict the templates
+  - A type comment is a **model** of the functions operating on that type
+  - Non-code representation of the program
+  - Tells us what the function will look like
+- Using a cross product of type comments table: simplifying at a **model level**
+  - Simplifying without looking at details of code
