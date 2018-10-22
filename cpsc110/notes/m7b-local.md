@@ -53,15 +53,22 @@ Finding good candidates for encapsulation:
 
 When refactoring existing code, make sure to
 
-- Encapsulate (group) functions that are good candidates
+- Encapsulate
   - Open function with new global name + necessary parameters
   - Wrap old functions in `[]`
   - Add "trampoline" call to the appropriate function
-- Rename `check-expect`s + possibly stubs
+  - Write one `@template` tag with `encapsulated`:
+    - `(@template <Type1> <Type2> ... <TypeN> encapsulated)`
+- Renaming
+    - Rename `check-expect`s
+    - Renamestubs
+    - `@HtDF` tag
 - Delete unnecessary pieces
   - Delete tests for hidden functions (may lose some base cases)
   - Delete signatures that don't apply anymore
   - Delete old stubs
+
+**Structure changes. Functionality does NOT change.**
 
 ## Advantages and Disadvantages of Using `local` for Encapsulation
 
