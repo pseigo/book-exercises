@@ -21,11 +21,17 @@ Learn how to use multiple mutually referential types.
 
 Mutually recursive data: Arbitrary-arity trees
 
-- Requires two cycles in the type reference graph
-  - Due to arbitrary size in 2 dimensions
 
-### 01-Mutually-Recursive Data (video)
+### Mutually-Recursive Data
 
+- Mutually-recursive data
+  - Requires two cycles in the type reference graph
+    - Due to arbitrary size in 2 dimensions
+  - Data definition: do both definitions at the same time
+  - Group type comments + interpretations, then put all examples and templates after
+    - `<Comments + interp. for data definition 1>`
+    - `<Comments + interp. for data definition 2>`
+    - `<Examples and templates for both>`
 - `ListOfElement`
   - self-reference (SR) cycle: allows directory's list of sub-elements to be arbitrarily long
   - reference to `Element`: mutual reference (MR)
@@ -41,3 +47,24 @@ Mutually recursive data: Arbitrary-arity trees
 - Arbitary-arity tree: nodes can have an arbitrary number of children
   - Arbitarily deep: an unknown number of levels
   - Aribitarily "wide": an unknown number of children
+- Mutual Reference: structure in types
+- Mutual Recursion: structure in templates
+- Natural Mutual Recursion: structure in function
+
+
+## Reference, self-reference, and mutual-reference terms
+
+Cause and effect of template rules (from top to bottom)
+
+- Referential Data:
+    1. Reference (R) in type comment
+    2. Natural Helper (NH) in template
+    3. Helper function wraps type causing NH in function
+- Self-Referential Data:
+    1. Self-reference (SR) in type comment
+    2. Natural recursion (NR) in template
+    3. Helper function wraps type causing NR in function
+- Mutually-Recursive Data:
+    1. Mutual Reference Cycle (MR) in type comments
+    2. Natural Mutual Recursion (MR) in templates
+    3. Helper function wraps type causing MR in function

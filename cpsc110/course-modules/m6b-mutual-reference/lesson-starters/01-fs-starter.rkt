@@ -8,14 +8,13 @@
 
 ;; Data definitions:
 
-(@HtDD Element)
+(@HtDD Element ListOfElement)
 (define-struct elt (name data subs))
 ;; Element is (make-elt String Integer ListOfElement)
 ;; interp. An element in the file system, with name, and EITHER data or subs.
 ;;         If data is 0, then subs is considered to be list of sub elements.
 ;;         If data is not 0, then subs is ignored.
 
-(@HtDD ListOfElement)
 ;; ListOfElement is one of:
 ;;  - empty
 ;;  - (cons Element ListOfElement)
@@ -28,7 +27,23 @@
 (define D5 (make-elt "D5" 0 (list F3)))
 (define D6 (make-elt "D6" 0 (list D4 D5)))
 
+(@dd-template-rules compound ; 3 fields
+                    ref)     ; (elt-subs e) is ListOfElement
+(define (fn-for-element e)
+  (... (elt-name e)                 ; String
+       (elt-data e)                 ; Integer
+       (fn-for-loe (elt-subs e))))  ; ListOfElement
 
+(@dd-template-rules one-of          ; 2 cases
+                    atomic-distinct ; empty
+                    compound        ; 2 fields
+                    ref             ; (first loe) is Element
+                    self-ref)       ; (rest loe) is ListOfElement
+(define (fn-for-loe loe)
+  (cond [(empty? loe) (...)]
+        [else
+         (... (fn-for-element (first loe)) ; Element
+              (fn-for-loe (rest loe)))]))  ; ListOfElement
 
 
 ;; Functions:
