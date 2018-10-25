@@ -1,0 +1,25 @@
+#!/bin/bash
+m_num=$1
+m_name=$2
+
+filename="m$1-$2" | tr '[:upper:]' '[:lower:]' | tr ' ' '-'
+
+# make first char of each word uppercase
+title_lower=$m_name | tr '[:upper:]' '[:tolower:]' # all to lower
+title=( $title_lower ) # an array?
+title=${title[@]^} # capitalize each element?
+
+month_now="$(date +%m)"
+day_now="$(date +%d)"
+
+cd ~/codebase/book-exercises/cpsc110
+
+# make module files
+cp -ra ./course-modules/module-template ./course-modules/$filename
+cp ./notes/template.md ./notes/"$filename.md"
+sed -i "s/xx/$m_num/g" ./notes/"$filename.md"
+sed -i "s/Title/$title/g" ./notes/"$filename.md"
+sed -i "s/MM/$month_now/g" ./notes/"$filename.md"
+sed -i "s/DD/$day_now/g" ./notes/"$filename.md"
+
+code ./notes/"$filename.md"

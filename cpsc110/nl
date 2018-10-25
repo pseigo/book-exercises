@@ -1,0 +1,15 @@
+#!/bin/bash
+lecture=$1
+month_now="$(date +%m)"
+day_now="$(date +%d)"
+
+cd ~/codebase/book-exercises/cpsc110
+
+# make lecture files
+mkdir ./lectures/lec$lecture
+cp ./lec-notes/template.md ./lec-notes/lec$lecture.md
+sed -i "s/xx/$lecture/g" ./lec-notes/lec$lecture.md
+sed -i "s/MM/$month_now/g" ./lec-notes/lec$lecture.md
+sed -i "s/DD/$day_now/g" ./lec-notes/lec$lecture.md
+
+code ./lec-notes/lec$lecture.md
