@@ -24,8 +24,13 @@ titlepage: true
 
 ## Terminology
 
+### Abstraction
+
 - **Abstraction**: generalizing repetitive code (through refactoring)
   - Make programs smaller + easier to read
   - Separates knowledge domains more clearly in code
 - **Abstract function**: a helper shared between multiple functions
   - More general than the original code
+- **Abstraction from examples**: abstracting/generalizing functions that have already been written
+  - Backwards HtDF recipe
+  - Function definition -> Tests -> Purpose -> Signature
