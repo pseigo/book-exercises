@@ -1,15 +1,23 @@
 #!/bin/bash
-lecture=$1
+lec_num=$1
 month_now="$(date +%m)"
 day_now="$(date +%d)"
 
 cd ~/codebase/book-exercises/cpsc110
 
-# make lecture files
-mkdir ./lectures/lec$lecture
-cp ./lec-notes/template.md ./lec-notes/lec$lecture.md
-sed -i "s/xx/$lecture/g" ./lec-notes/lec$lecture.md
-sed -i "s/MM/$month_now/g" ./lec-notes/lec$lecture.md
-sed -i "s/DD/$day_now/g" ./lec-notes/lec$lecture.md
+echo "NEW LECTURE: Lecture $lec_num ($month_now/$day_now)"
 
-code ./lec-notes/lec$lecture.md
+# make lecture files
+echo "Create directory -> ./lectures/lec$lec_num"
+mkdir ./lectures/lec$lec_num
+
+echo "Copy template.md -> ./lec-notes/lec$lec_num.md"
+cp ./lec-notes/template.md ./lec-notes/lec$lec_num.md
+
+echo "Set fields -> ./lec-notes/lec$lec_num.md"
+sed -i "s/xx/$lec_num/g" ./lec-notes/lec$lec_num.md
+sed -i "s/MM/$month_now/g" ./lec-notes/lec$lec_num.md
+sed -i "s/DD/$day_now/g" ./lec-notes/lec$lec_num.md
+
+echo "Launch Visual Studio Code -> ./lec/lec$lec_num.md"
+code ./lec-notes/lec$lec_num.md
