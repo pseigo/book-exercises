@@ -81,9 +81,6 @@
     (map add-x lon)))
 
 ;; Example of Closures.
-;; R
-
-
 
 
 ;; PROBLEM 4: Complete the design of this function that consumes a list of
