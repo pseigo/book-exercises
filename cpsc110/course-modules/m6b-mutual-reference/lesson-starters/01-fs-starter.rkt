@@ -3,9 +3,61 @@
    This file uses the GRacket editor format.
    Open this file in DrRacket version 7.0 or later to read it.
 
+<<<<<<< HEAD
+;; fs-starter.rkt (type comments and examples)
+
+;; Data definitions:
+
+(@HtDD Element ListOfElement)
+(define-struct elt (name data subs))
+;; Element is (make-elt String Integer ListOfElement)
+;; interp. An element in the file system, with name, and EITHER data or subs.
+;;         If data is 0, then subs is considered to be list of sub elements.
+;;         If data is not 0, then subs is ignored.
+
+;; ListOfElement is one of:
+;;  - empty
+;;  - (cons Element ListOfElement)
+;; interp. A list of file system Elements
+
+(define F1 (make-elt "F1" 1 empty))
+(define F2 (make-elt "F2" 2 empty))
+(define F3 (make-elt "F3" 3 empty))
+(define D4 (make-elt "D4" 0 (list F1 F2)))
+(define D5 (make-elt "D5" 0 (list F3)))
+(define D6 (make-elt "D6" 0 (list D4 D5)))
+
+(@dd-template-rules compound ; 3 fields
+                    ref)     ; (elt-subs e) is ListOfElement
+(define (fn-for-element e)
+  (... (elt-name e)                 ; String
+       (elt-data e)                 ; Integer
+       (fn-for-loe (elt-subs e))))  ; ListOfElement
+
+(@dd-template-rules one-of          ; 2 cases
+                    atomic-distinct ; empty
+                    compound        ; 2 fields
+                    ref             ; (first loe) is Element
+                    self-ref)       ; (rest loe) is ListOfElement
+(define (fn-for-loe loe)
+  (cond [(empty? loe) (...)]
+        [else
+         (... (fn-for-element (first loe)) ; Element
+              (fn-for-loe (rest loe)))]))  ; ListOfElement
+
+
+;; Functions:
+
+
+
+
+
+;; Functions:
+=======
    Most likely, it was created by saving a program in DrRacket,
    and it probably contains a program with non-text elements
    (such as images or comment boxes).
+>>>>>>> a1b2fee111e1ac24c54c97a2a23dab36da22db43
 
             http://racket-lang.org/
 |#
