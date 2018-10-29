@@ -35,7 +35,7 @@
 ;; write a check expect that consumes a list of strings and produce a list of
 ;; its lengths
 
-(@template (listof X) add-param) ; !!!
+(@template (listof T) add-param)
 (define (map2 fn lon)
   (cond [(empty? lon) empty]
         [else
