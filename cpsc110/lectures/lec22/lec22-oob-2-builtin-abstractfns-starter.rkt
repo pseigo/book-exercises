@@ -76,8 +76,9 @@
 
 (@template use-abstract-fn)
 (define (add-to-all x lon)
-  (local [(define (add-x n)`
+  (local [(define (add-x n)
             (+ n x))]
+    
     (map add-x lon)))
 
 ;; Example of Closures.
