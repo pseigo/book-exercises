@@ -99,13 +99,15 @@ Template for writing a function that calls a built-in abstract function:
 Built-In Abstract Functions
 ISL and ASL have the following built-in abstract functions.
 
-- `build-list`: `(build-list n identity)` makes a list of naturals for `[0, n)`
+- `build-list`: make a list of elements based on their index (doesn't have to be a list of numbers!)
+  - `(build-list n identity)` makes a list of naturals for `[0, n)`
 - `filter`: list of elements that satisfy a given predicate
 - `map`: apply a fn to each element
 - `andmap`: analogous to Elixir's `all?`
 - `ormap`: analogous to Elixir's `any?`
 - `foldl`
-- `foldr`: similar to Elixir's `reduce`, but `foldr` does not use an [apparent] accumulator
+- `foldr`: reduce a list of elements to a single element
+  - similar to Elixir's `reduce`, but `foldr` does not use an [apparent] accumulator
   - HexDocs actually says Reduce is sometimes called `fold`!
 
 `foldr` is the abstract function for the `(listof T)` template:
