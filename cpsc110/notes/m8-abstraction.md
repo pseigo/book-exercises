@@ -25,6 +25,26 @@ titlepage: true
   - Replace point(s) of variance with variable(s)
     - Point of variance could be a value or function call
 
+## `(listof T)` instead of `ListOfT`
+
+From now on, anytime you want a `ListOfT` type, you can use `(listof X)` instead of having to write a data definition for it.
+
+The type `(listof T)` means:
+
+```racket
+;; ListOfT is one of:
+;;  - empty
+;;  - (cons T ListOfT)
+;; interp. a list of T
+
+(@dd-template-rules compound self-ref)
+(define (fn-for-lot lot)
+  (cond [(empty? lot) (...)]
+        [else
+         (... (first lot)
+              (fn-for-lot (rest lot)))]))
+```
+
 ## Working through the recipe
 
 With abstract functions, it gets **harder** as we go back towards the signature.
@@ -37,7 +57,6 @@ With abstract functions, it gets **harder** as we go back towards the signature.
 3. Purpose
     - Can sometimes be abstracted from orig. purpose(s), but not always
     - Purpose statements can take A LOT of tries to get right. This is normal.
-    - From now on, anytime you want a "ListOfX" type, use `(listof X)` instead of writing a data definition for it
 4. Signature
     - Lists: use `(listof <Type>)`
     - Functions: use `(<Type1> -> <Type2>)`
@@ -72,8 +91,6 @@ Below, the helper `bigger?` is a closure. It "closes over" the value of `thresho
 
 ## Terminology
 
-### Abstraction
-
 - **Abstraction**: generalizing repetitive code (through refactoring)
   - Make programs smaller + easier to read
   - Separates knowledge domains more clearly in code
@@ -84,7 +101,7 @@ Below, the helper `bigger?` is a closure. It "closes over" the value of `thresho
 - **Higher order function**: can a) consume one or more function, and b) produce a function
 - **Type parameter**: a name for some generic type; often used in an abstract function's signature and template tags (`X`, `Y`, `Z`, `T`, `U`, etc.)
 
-## Built-in abstract functions template
+## Built-in abstract functions
 
 Template for writing a function that calls a built-in abstract function:
 
@@ -93,8 +110,6 @@ Template for writing a function that calls a built-in abstract function:
 (define (some-fn lot)
   (<built-in-fn> ... lot))
 ```
-
-## Built-in abstract functions
 
 Built-In Abstract Functions
 ISL and ASL have the following built-in abstract functions.
@@ -173,3 +188,15 @@ Signature + purpose for each built-in abstract function according to _Language_ 
 ;; (foldl f base (list x-1 ... x-n)) = (f x-n ... (f x-1 base))
 (define (foldl f base lox) ...)
 ```
+
+## Fold functions
+
+Going directly from type comments to abstract functions, rather than writing a bunch of redundant code and abstracting from examples afterwards.
+
+Our fold functions are written from existing templates.
+
+### Tips
+
+- For mutual ref templates, assign _type parameters_ to the result of each function right away!
+  - i.e. for `Element` and `ListOfElement`, let `fn-for-e -> X` and `fn-for-loe -> Y`
+  - Makes writing the signature MUCH easier
