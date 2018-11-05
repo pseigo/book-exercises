@@ -56,7 +56,7 @@ Learn how to use multiple mutually referential types.
   - Separate signatures for each functon (both above purpose)
   - Separate template tags for each function (above each function)
 
-### Why does it work?** Because our method is data-driven, we do all the hard work with our data definitions.
+### **Why does it work?** Because our method is data-driven, we do all the hard work with our data definitions.
 
 1. Well-formed, self and mutually referential type comments
 2. Templates support natural mutual recursion (NMR)

@@ -16,6 +16,14 @@ titlepage: true
 - Use local to encapsulate function definitions ("private" helper functions)
 - Use local to avoid redundant computation
 
+**With regards to efficiency**, it is easy for programmers to worry
+
+- too much,
+- too soon,
+- or incorrectly.
+
+Better to design a simple program that's easy to understand and change. Worry about efficiency later.
+
 ## Local
 
 The `local` function is comprised of _local definitions_ and a _body_.
@@ -54,17 +62,17 @@ Finding good candidates for encapsulation:
 When refactoring existing code, make sure to
 
 - Encapsulate
-  - Open function with new global name + necessary parameters
+  - Wrap in new function (include necessary params)
   - Wrap old functions in `[]`
-  - Add "trampoline" call to the appropriate function
+  - "Trampoline" call
   - Write one `@template` tag with `encapsulated`:
     - `(@template <Type1> <Type2> ... <TypeN> encapsulated)`
 - Renaming
-    - Rename `check-expect`s
-    - Renamestubs
-    - `@HtDF` tag
+  - `check-expect`s
+  - Stubs
+  - `@HtDF` tag
 - Delete unnecessary pieces
-  - Delete tests for hidden functions (may lose some base cases)
+  - Delete tests for hidden functions (drawback: may lose some base cases)
   - Delete signatures that don't apply anymore
   - Delete old stubs
 
