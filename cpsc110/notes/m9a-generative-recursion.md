@@ -49,9 +49,9 @@ Functions that use structural recursion driven by data, specifically **well-form
 1. A value (like `empty` or `0`), or
 2. Self-referential data
 
-These data stuctures MUST end at some point. Because structural recursion takes **sub-pieces** of the current data they eventuallylead to the base case.
+Data of these types MUST end at some point. Because structural recursion takes **sub-pieces** of the current data, they eventually lead to the base case.
 
-Generative recursion is not based on such types. Our previous proof **does not apply anymore**. To deal with this, we write a three-part _termination argument_.
+Generative recursion is not based on such types. As such, our previous proof **does not apply anymore**. To deal with this, we write a three-part **termination argument**.
 
 1. Base case.
 2. Reduction step.

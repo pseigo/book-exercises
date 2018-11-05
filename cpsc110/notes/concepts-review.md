@@ -14,6 +14,14 @@ titlepage: true
 - Binary search trees
 - Generative recursion
 
+## Useful built-in functions
+
+- `(string-length s) -> Natural`
+- `(substring s i j) -> String`
+- `(string-ith s i) -> String (one long)`
+- `(string-downcase s) -> String`
+- `(string-upcase s) -> String`
+
 ## Concepts
 
 Core recipes:
