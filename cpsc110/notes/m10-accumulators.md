@@ -14,7 +14,13 @@ Structural recursion (on its own) doesn't let us see (1) where we've been in the
 
 - Identify when a function design requires the use of accumulator.
 - Work with the accumulator design recipe to design such functions.
+
 - Understand and explain the concepts of tail position, tail call and tail recursion.
+
+## Terminology
+
+- **Accumulator invariant**: something that is always true about the accumulator (even if the exact value varies); varying quantity about a fact which does not vary
+  - First accumulator comment in function
 
 ## Accumulators
 
@@ -23,6 +29,37 @@ Three types of accumulators:
 1. Context preserving
 2. Result so far
 3. Worklist
+
+## Tail Call Optimization (Tail Recursion)
+
+Tail recursion avoids pending computations in recursive calls.
+
+An expression is in **tail position** if it evaluates to the same thing as the enclosing function.
+
+!! refer back to this definition.
+
+https://docs.racket-lang.org/reference/eval-model.html#%28tech._continuation%29
+
+```racket
+(define (foo a)
+    1)
+``
+
+`1` is in tail position because it evaluates the same thing that the enclosing function, `foo`, evaluates to.
+
+```racket
+(define (bar b)
+    (cond [(empty? b) (+ 1 2)]
+          [else (bar (+ 4 5))]))
+```
+
+The only expressions in tail position are `(+ 1 2)` and `(bar (+ 4 5))`.
+
+If a a function's expression in tail position is NOT the function itself, the function will have to wait for other work to be done before it can produce a result.
+
+On the other hand, if a function's expression in tail position IS the function itself, it can say "Hey, I'm just going to return whatever this function returns. I don't need to stick around for any longer," and thus its frame is replaced.
+
+**In other words, we implement tail recursion by making suring the recursive call is in tail position.**
 
 ## Accumulator HtDF Recipe
 
@@ -74,8 +111,3 @@ Example template operating on a list:
 ```
 
 `add1` updates the accumulator to **preserve the invariant**.
-
-## Terminology
-
-- **Accumulator invariant**: something that is always true about the accumulator (even if the exact value varies); varying quantity about a fact which does not vary
-  - First accumulator comment in function
