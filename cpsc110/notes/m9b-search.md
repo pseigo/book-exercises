@@ -15,14 +15,13 @@ titlepage: true
 
 ## Lambda Expressions (i.e. Anonymous Functions)
 
-Syntax (both are equivalent):
+Syntax
 
 ```racket
 (lambda (x y z) (... x y z))
-(λ (x y z) (... x y z))
 ```
 
-You can insert a λ symbol in DrRacket using <kbd>CTRL</kbd> + <kbd>\\</kbd> (blackslash).
+You can insert a lambda symbol in DrRacket using <kbd>CTRL</kbd> + <kbd>\\</kbd> (blackslash). This is equivalent to `lambda`.
 
 Use when either:
 

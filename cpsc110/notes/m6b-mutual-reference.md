@@ -27,8 +27,16 @@ Learn how to use multiple mutually referential types.
   - If you missed some examples at the beginning, GO WRITE THEM IN when you get to a situation that isn't covered!
   - Do it on paper.
 
-### 01-Mutually-Recursive Data (video)
+### Mutually-Recursive Data
 
+- Mutually-recursive data
+  - Requires two cycles in the type reference graph
+    - Due to arbitrary size in 2 dimensions
+  - Data definition: do both definitions at the same time
+  - Group type comments + interpretations, then put all examples and templates after
+    - `<Comments + interp. for data definition 1>`
+    - `<Comments + interp. for data definition 2>`
+    - `<Examples and templates for both>`
 - `ListOfElement`
   - self-reference (SR) cycle: allows directory's list of sub-elements to be arbitrarily long
   - reference to `Element`: mutual reference (MR)
@@ -42,7 +50,7 @@ Learn how to use multiple mutually referential types.
     2. When an element has zero data and an empty list.
     3. When an element has zero data and a list with elements with non-zero data. The element's children will not have children (no grandchildren for you!).
 
-### HTDF for Mutually Recursive Data**
+### HTDF for Mutually Recursive Data
 
 - We don't design a single function. We design a function for EACH type.
 - Function naming convention: `<base-fn-name>--<data-type>`
@@ -78,12 +86,31 @@ Three main things about backtracking:
     - `(@template Region add-param` **`backtracking`**`)`
     - `(@template ListOfRegion add-param` **`backtracking`**`)`
 
-
 ## Terminology
 
 - Arbitary-arity tree: nodes can have an arbitrary number of children
   - Arbitarily deep: an unknown number of levels
   - Aribitarily "wide": an unknown number of children
+- Mutual Reference: structure in types
+- Mutual Recursion: structure in templates
+- Natural Mutual Recursion: structure in function
+
+## Reference, self-reference, and mutual-reference terms
+
+Cause and effect of template rules (from top to bottom)
+
+- Referential Data:
+    1. Reference (R) in type comment
+    2. Natural Helper (NH) in template
+    3. Helper function wraps type causing NH in function
+- Self-Referential Data:
+    1. Self-reference (SR) in type comment
+    2. Natural recursion (NR) in template
+    3. Helper function wraps type causing NR in function
+- Mutually-Recursive Data:
+    1. Mutual Reference Cycle (MR) in type comments
+    2. Natural Mutual Recursion (MR) in templates
+    3. Helper function wraps type causing MR in function
 
 ## Off-topic Questions
 
