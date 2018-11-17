@@ -12,10 +12,6 @@ titlepage: true
 
 See my m10-accumulators notes on what tail position means.
 
-## Questions
-
-- x
-
 ## Tail Recursion
 
 - `rsf` - "Result so far" \[accumulator\]
