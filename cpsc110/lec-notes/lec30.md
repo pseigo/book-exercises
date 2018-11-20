@@ -8,10 +8,6 @@ titlepage: true
 
 # Lecture 30
 
-## Clicker questions
-
-- x
-
 ## Questions
 
 - Does it matter where we put `todo`?
@@ -25,5 +21,5 @@ titlepage: true
 
 > **Note to self**: redo this lecture file form scratch. See paper materials posted. Follow paths drawn.
 
-`fn-for-t`: Updating todo list
-`fn-for-lot`: Handles first, gives rest when done with first
+- `fn-for-t`: Updating todo list
+- `fn-for-lot`: Handles first, gives rest when done with first

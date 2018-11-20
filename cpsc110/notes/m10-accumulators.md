@@ -30,6 +30,11 @@ Three types of accumulators:
 2. Result so far
 3. Worklist
 
+## Important Notes
+
+- With mutually recursive functions, must add accumulator to ALL the functions.
+- Add notes in `(parens)` to your `acc` docs if your cases have any special behaviour (e.g. empty string `""` for root of tree)
+
 ## Accumulator HtDF Recipe
 
 Main Idea
@@ -40,11 +45,11 @@ Main Idea
 
 Three steps when filling in accumulator
 
-1. Initialize accumualtor
+1. Initialize accumulator
 2. Use/exploit accumulator value
-    - Assume `acc` comment on what the accumulator represents is correct
+    - Assume comment on what the accumulator represents is correct
 3. Update accumulator to preserve invariant
-    - Ensure `acc` value keeps invariant true
+    - Ensure value of `acc` keeps invariant true
 
 Full Recipe
 
@@ -68,6 +73,7 @@ Example template operating on a list:
   ;; (skip1 (list "a" "b" "c") 1)
   ;; (skip1 (list     "b" "c") 2)
   ;; (skip1 (list         "c") 3)
+
   (local [(define (skip1 lox acc)
             (cond [(empty? lox) (... acc)]
                   [else
@@ -83,7 +89,7 @@ Example template operating on a list:
 
 ## Tail Call Optimization (Tail Recursion)
 
-Tail recursion avoids pending computations in recursive calls.
+Tail recursion avoids pending computations in recursive calls. To ensure optimization, **ALL recursive calls must be in tail position**.
 
 An expression is in **tail position** if it evaluates to the same thing as the enclosing function ([further reading](https://docs.racket-lang.org/reference/eval-model.html#%28tech._continuation%29)).
 
@@ -97,16 +103,11 @@ An expression is in **tail position** if it evaluates to the same thing as the e
 ```racket
 (define (bar b)
     (cond [(empty? b) (+ 1 2)]
-          [else (bar (+ 4 5))]))
+          [else
+           (+ 4 (bar (+ 4 5))]))
 ```
 
-The only expressions in tail position are `(+ 1 2)` and `(bar (+ 4 5))`.
-
-If a a function's expression in tail position is NOT the function itself, the function will have to wait for other work to be done before it can produce a result.
-
-On the other hand, if a function's expression in tail position IS the function itself, it can say "Hey, I'm just going to return whatever this function returns. I don't need to stick around for any longer," and thus its frame is replaced.
-
-**In other words, we implement tail recursion by making suring the recursive call is in tail position.**
+`(bar (+ 4 5))` is the only recursive call and is NOT in tail position due to the enclosing `(+ 4`. This function is not tail call optimized.
 
 ## Tail Call Optimization Process
 
