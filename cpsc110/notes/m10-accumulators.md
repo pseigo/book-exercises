@@ -30,37 +30,6 @@ Three types of accumulators:
 2. Result so far
 3. Worklist
 
-## Tail Call Optimization (Tail Recursion)
-
-Tail recursion avoids pending computations in recursive calls.
-
-An expression is in **tail position** if it evaluates to the same thing as the enclosing function.
-
-!! refer back to this definition.
-
-https://docs.racket-lang.org/reference/eval-model.html#%28tech._continuation%29
-
-```racket
-(define (foo a)
-    1)
-``
-
-`1` is in tail position because it evaluates the same thing that the enclosing function, `foo`, evaluates to.
-
-```racket
-(define (bar b)
-    (cond [(empty? b) (+ 1 2)]
-          [else (bar (+ 4 5))]))
-```
-
-The only expressions in tail position are `(+ 1 2)` and `(bar (+ 4 5))`.
-
-If a a function's expression in tail position is NOT the function itself, the function will have to wait for other work to be done before it can produce a result.
-
-On the other hand, if a function's expression in tail position IS the function itself, it can say "Hey, I'm just going to return whatever this function returns. I don't need to stick around for any longer," and thus its frame is replaced.
-
-**In other words, we implement tail recursion by making suring the recursive call is in tail position.**
-
 ## Accumulator HtDF Recipe
 
 Main Idea
@@ -111,3 +80,47 @@ Example template operating on a list:
 ```
 
 `add1` updates the accumulator to **preserve the invariant**.
+
+## Tail Call Optimization (Tail Recursion)
+
+Tail recursion avoids pending computations in recursive calls.
+
+An expression is in **tail position** if it evaluates to the same thing as the enclosing function ([further reading](https://docs.racket-lang.org/reference/eval-model.html#%28tech._continuation%29)).
+
+```racket
+(define (foo a)
+    1)
+```
+
+`1` is in tail position because it evaluates the same thing that the enclosing function, `foo`, evaluates to.
+
+```racket
+(define (bar b)
+    (cond [(empty? b) (+ 1 2)]
+          [else (bar (+ 4 5))]))
+```
+
+The only expressions in tail position are `(+ 1 2)` and `(bar (+ 4 5))`.
+
+If a a function's expression in tail position is NOT the function itself, the function will have to wait for other work to be done before it can produce a result.
+
+On the other hand, if a function's expression in tail position IS the function itself, it can say "Hey, I'm just going to return whatever this function returns. I don't need to stick around for any longer," and thus its frame is replaced.
+
+**In other words, we implement tail recursion by making suring the recursive call is in tail position.**
+
+## Tail Call Optimization Process
+
+1. Template according to accumulator recipe.
+2. Delete part of template wrapping around recursive call.
+    - _This is the context we need to eliminate!_
+3. Computation that would have been recursive call -> moves to be in accumulator argument position.
+
+This diagram shows how a template for `sum` (sum of all `Number`s in `(listof Number)`) incorporates each template.
+
+![Tail Recursion Template for "sum" function](resources/img/m10-tail-recursion-template.png)
+
+Equivalent abstract fold/reduce functions:
+
+- Not Tail Recursive: `(foldr + 0 <the list>)`
+- Tail Recursive: `(foldl + 0 <the list>)`
+  - **`foldl` is the tail recursive abstract fold function for lists.**
