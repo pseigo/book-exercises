@@ -26,9 +26,9 @@ Structural recursion (on its own) doesn't let us see (1) where we've been in the
 
 Three types of accumulators:
 
-1. Context preserving
-2. Result so far
-3. Worklist
+1. **Context preserving**: preserve context lost in natural recursion
+2. **Result so far**: eliminate pending operations _(to achieve tail recursion)_
+3. **Worklist**: eliminate need to retain future recursive calls in pending operations _(to achieve tail recursion)_
 
 ## Important Notes
 
@@ -118,10 +118,32 @@ An expression is in **tail position** if it evaluates to the same thing as the e
 
 This diagram shows how a template for `sum` (sum of all `Number`s in `(listof Number)`) incorporates each template.
 
-![Tail Recursion Template for "sum" function](resources/img/m10-tail-recursion-template.png)
+![Tail Recursion template for `sum` function.](resources/img/m10-tail-recursion-template.png)
 
 Equivalent abstract fold/reduce functions:
 
 - Not Tail Recursive: `(foldr + 0 <the list>)`
 - Tail Recursive: `(foldl + 0 <the list>)`
   - **`foldl` is the tail recursive abstract fold function for lists.**
+
+## Worklist Accumulator
+
+Using the example in the videos, we can explore the `Wizard` tree with two different methods. Depth first and breadth first.
+
+```racket
+;; Depth first
+(define (fn-for-wiz w todo rsf)
+            (fn-for-low (append (wiz-children w) todo)
+                        (add1 rsf)))
+```
+
+```racket
+;; Breadth first
+(define (fn-for-wiz w todo rsf)
+            (fn-for-low (append todo (wiz-children w))
+                        (add1 rsf)))
+```
+
+![Traversal for a Depth First Tree](resources/img/m10-depth-first-tree.png){ width=50% }
+
+![Traversal for a Breadth First Tree](resources/img/m10-Breadth-first-tree.png){ width=50% }
