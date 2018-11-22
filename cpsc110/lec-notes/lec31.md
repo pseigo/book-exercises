@@ -18,7 +18,7 @@ titlepage: true
 
 ## Templating Cyclic Data
 
-![Graph for the example from lecture 31.](resources/img/lec31-graph.png){ width: 50% }
+![Graph for the example from lecture 31.](resources/img/lec31-graph.png){ width=75% }
 
 - Representing data, key insight: from any given node, a graph looks like an arbtitrary arity tree
 - Insteading of returning one name in `shared`, we return a list so we can start at any position!

@@ -8,7 +8,6 @@ titlepage: true
 
 # Module 10: Accumulators
 
-
 ## Table of Contents
 
 - [Module 10: Accumulators](#module-10-accumulators)
@@ -85,7 +84,7 @@ Full Recipe
 
 Example template operating on a list:
 
-```racket
+```scheme
 (@template (listof X) encapsulated accumulator)
 (define (skip1 lox0)
   ;; acc: Natural; 1-based index of (first lox) in lox0
@@ -110,16 +109,16 @@ Example template operating on a list:
 
 Tail recursion avoids pending computations in recursive calls. To ensure optimization, **ALL recursive calls must be in tail position**.
 
-An expression is in **tail position** if it evaluates to the same thing as the enclosing function ([further reading](https://docs.racket-lang.org/reference/eval-model.html#%28tech._continuation%29)).
+An expression is in **tail position** if it evaluates to the same thing as the enclosing function ([further reading](https://docs.scheme-lang.org/reference/eval-model.html#%28tech._continuation%29)).
 
-```racket
+```scheme
 (define (foo a)
     1)
 ```
 
 `1` is in tail position because it evaluates the same thing that the enclosing function, `foo`, evaluates to.
 
-```racket
+```scheme
 (define (bar b)
     (cond [(empty? b) (+ 1 2)]
           [else
@@ -151,14 +150,14 @@ To traverse an arbitary-arity tree with a trail recursive function, we need a wo
 
 Using the example in the videos, we can explore the `Wizard` tree with two different methods. Depth first and breadth first.
 
-```racket
+```scheme
 ;; Depth first
 (define (fn-for-wiz w todo rsf)
             (fn-for-low (append (wiz-children w) todo)
                         (add1 rsf)))
 ```
 
-```racket
+```scheme
 ;; Breadth first
 (define (fn-for-wiz w todo rsf)
             (fn-for-low (append todo (wiz-children w))
@@ -199,7 +198,7 @@ Let ADD-TEM represent adding a component to the template.
 
 At this point in time, our template looks like this,
 
-```racket
+```scheme
 (@template Wizard accumulator)
 (define (inherits-house w)
   ;; todo: (listof ...); worklist accumulator
@@ -237,7 +236,7 @@ We have one more thing to do before we start filling in the details; we must cre
 
 After creating `wle`, adding the `ph` param, packing and unpacking `wle`, and adding the "filter" functionality, our function looks like this,
 
-```racket
+```scheme
 (@template Wizard accumulator)
 (define (inherits-house w)
   ;; todo: (listof WLE); worklist accumulator
@@ -246,11 +245,11 @@ After creating `wle`, adding the `ph` param, packing and unpacking `wle`, and ad
   (local [(define-struct wle (w ph))
           ;; WLE (worklist entry) is (make-wle Wizard House)
           ;; interp. a worklist entry with wizard to pass to fn-for-wiz
-          ;;         and this wizard's parent house
+          ;;         and this wizards parent house
 
           (define (fn-for-wiz w ph todo rsf)
-            (fn-for-low (append (map (λ (c) (make-wle c (wiz-house w)))
-                                     (wiz-children w)) ; `packing` wle
+            (fn-for-low (append (map (lambda (c) (make-wle c (wiz-house w)))
+                                     (wiz-children w)) ; 'packing' wle
                                 todo)
                         (if (string=? (wiz-house w) ph)
                             (cons (wiz-name w) rsf)
