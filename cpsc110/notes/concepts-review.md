@@ -28,6 +28,9 @@ Core recipes:
 
 - HtDF
 - HtDD
+  - Self-ref
+  - Mutual-ref
+  - Cyclic data !!!
 - HtDW
   - Main function: `(@template htdw-main)`
 
@@ -51,6 +54,11 @@ Data driven templating:
 - **Abstraction**
 - **Generative Recursion**
   - **Search** w/ genrec
+
+## Quesions
+
+- NOTE: see if there is a syllabus with all the outcomes and skills.
+- If designing a tail recursive function with self-ref template AND accumulators, do you use `encapsulated` AND `accumulator` for both, or just `accumulator`? Because we combine the two templates into one `local`.
 
 ## `(require spd/tags)`: @ tags
 
