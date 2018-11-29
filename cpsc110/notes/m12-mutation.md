@@ -23,19 +23,23 @@ defined.
 This mechanism is fundamental in almost any other language you
 program in.
 
- - Despite being fundamental, it is surprisingly complex
- - Overuse of it leads to programs that are not amenable
-   to parallelization (running on multiple processors).
-   Since multi-core computers are now common, the ability
-   to use mutation only when needed is becoming more and
-   more important
- - Overuse of mutation can also make it difficult to
-   understand programs, and difficult to test them well
+- Despite being fundamental, it is surprisingly complex
+- Overuse of it leads to programs that are not amenable to parallelization (running on multiple processors). Since multi-core computers are now common, the ability to use mutation only when needed is becoming more and more important
+- Overuse of mutation can also make it difficult to understand programs, and difficult to test them well
 
-## Notes
+## Advanced Student Language (ASL) Differences
 
-- x
+New expressions:
+
+```scheme
+<expr> = (set! <var> <expr>)
+         (begin <expr1> <expr2> ...)
+```
+
+Functions can now have 0 parameters.
 
 ## Terminology
 
 - x
+
+Review: when did we write functions that accept anonymous functions as an argument?
