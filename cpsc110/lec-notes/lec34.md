@@ -8,11 +8,7 @@ titlepage: true
 
 # Lecture 34
 
-## Clicker questions
-
-- x
-
-## Exam
+## Final Exam
 
 - Final will be heavy on modules 10-12 and you need to be good at module 6 to do these.
 - Hint: Final might have a HtDF problem at a level of complexity such that you NEED to write examples for accumulators. (multiple accumulators?)
@@ -27,7 +23,7 @@ Template for `for-each`:
   ;; acc: <Type>, <invariant>
 
   (local [(define acc...)]
-    (begin (for-each ... lox) ; λ expression or local fn
+    (begin (for-each ... lox) ; lambda expression or local fn
            (... acc))))
 ```
 
