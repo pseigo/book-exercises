@@ -29,14 +29,28 @@ program in.
 
 ## Advanced Student Language (ASL) Differences
 
-New expressions:
+- Functions can now have 0 parameters.
+- New expressions (in snippet below)
 
 ```scheme
 <expr> = (set! <var> <expr>)
          (begin <expr1> <expr2> ...)
+
+(for-each <anon-fn> <list>)
+; <anon-fn> should have 1 parameter (for 'this' element)
 ```
 
-Functions can now have 0 parameters.
+## `for-each` Template
+
+```scheme
+(@template for-each)
+(define (fn lox)
+  ;; acc: <Type>, <invariant>
+
+  (local [(define acc...)]
+    (begin (for-each ... lox) ; lambda expression or local fn
+           (... acc))))
+```
 
 ## Terminology
 
