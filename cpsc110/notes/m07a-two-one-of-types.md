@@ -37,3 +37,15 @@ In the video, we only had one test for each box, except for the bottom right. Fo
   - Tells us what the function will look like
 - Using a cross product of type comments table: simplifying at a **model level**
   - Simplifying without looking at details of code
+
+## Two One-Of
+
+- Cross product tables tell us the **minimum** number of `check-expect`s to write
+- Cross product causes us to create a new template
+  - `template` tag is just `(@template 2-one-of)`
+- `cond` template questions are based on the cross product axes
+- **On problem sets**, you must show your cross product table in a comment box
+- When designing cross tables, ask
+  - What data do I have access to?
+  - What data do I need?
+  - What data do I need to produce?
