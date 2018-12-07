@@ -31,7 +31,7 @@ From now on, anytime you want a `ListOfT` type, you can use `(listof X)` instead
 
 The type `(listof T)` means:
 
-```racket
+```scheme
 ;; ListOfT is one of:
 ;;  - empty
 ;;  - (cons T ListOfT)
@@ -82,7 +82,7 @@ A closure is a `local` function defined within a function body and **uses a para
 
 Below, the helper `bigger?` is a closure. It "closes over" the value of `threshold` passed to `only-bigger`.
 
-```racket
+```scheme
 (define (only-bigger threshold lon)
   (local [(define (bigger? n)
             (> n threshold))]
@@ -105,7 +105,7 @@ Below, the helper `bigger?` is a closure. It "closes over" the value of `thresho
 
 Template for writing a function that calls a built-in abstract function:
 
-```racket
+```scheme
 (@template (listof t) use-abstract-fn)
 (define (some-fn lot)
   (<built-in-fn> ... lot))
@@ -129,7 +129,7 @@ ISL and ASL have the following built-in abstract functions.
 
 Signatures for each built-in function:
 
-```racket
+```scheme
 (define (fn-for-lot lot)
   (cond [(empty? lot) (...)]
         [else
@@ -158,7 +158,7 @@ Y (listof x) -> Y           |  foldl
 
 Signature + purpose for each built-in abstract function according to _Language_ page.
 
-```racket
+```scheme
 (@signature Natural (Natural -> X) -> (listof X))
 ;; produces (list (f 0) ... (f (- n 1)))
 (define (build-list n f) ...)
