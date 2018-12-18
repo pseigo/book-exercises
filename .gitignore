@@ -115,6 +115,8 @@ TAGS
 *.swo
 *.swp
 
-# CPSC 110
+# Course materials
 /cpsc110/problem-sets
 /cpsc110/labs
+/cpsc210/problem-set
+/cpsc210/lab

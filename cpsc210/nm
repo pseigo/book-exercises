@@ -1,0 +1,35 @@
+#!/bin/bash
+m_num=$1
+m_name=$2
+f_name_suffix=$3
+month_now="$(date +%m)"
+day_now="$(date +%d)"
+
+# filename="m$m_num-$m_name" | tr '[:upper:]' '[:lower:]' | tr ' ' '-'
+filename="m$m_num-$f_name_suffix"
+
+# make first char of each word uppercase
+# title_lower=echo $m_name | tr '[:upper:]' '[:lower:]' # all to lower
+# title=( $title_lower ) # an array?
+# title=${title[@]^} # capitalize each element?
+title=$m_name
+
+echo "NEW MODULE: Module $m_num ($month_now/$day_now)"
+
+cd ~/codebase/book-exercises/cpsc210
+
+# make module files
+echo "Copy directory module-template  -> ./course-module/$filename"
+cp -ra ./course-module/module-template ./course-module/$filename
+
+echo "Copy template.md -> ./notes-module/$filename.md"
+cp ./notes-module/template.md ./notes-module/"$filename.md"
+
+echo "Set fields -> ./notes-module/$filename.md"
+sed -i "s/xx/$m_num/g" ./notes-module/"$filename.md"
+sed -i "s/Title/$title/g" ./notes-module/"$filename.md"
+sed -i "s/MM/$month_now/g" ./notes-module/"$filename.md"
+sed -i "s/DD/$day_now/g" ./notes-module/"$filename.md"
+
+echo "Launch Visual Studio Code -> ./notes-module/$filename.md"
+code ./notes-module/"$filename.md"
