@@ -29,20 +29,16 @@ titlepage: true
   - What data do I need?
   - What data do I need to produce?
 
-### Problem 1
+## Problem 1
 
 | **`lon1` (right) `lon2` (down)** | **`empty`** | **`(cons Number ListOfNumber)`** |
 |-|-|-|
-| **`empty`** | `true` | `false` |
-| **`(cons Number ListOfString)`** | `true` | either `true` or `false` |
+| **`empty`** | (1) `true` | (2) `false` |
+| **`(cons Number ListOfString)`** | (1) `true` | (3) keep/discard first if `(first lon1) == (first lon2)`. natural recursion on `lon1` and `lon2`. |
 
-- First case: Combine the first column for `true`
-- Second case: Top right `false` case
-- Third case: Bottom right, either `true` or `false`
+### Template
 
-Template
-
-```racket
+```scheme
 (@template 2-one-of)
 (define (contains? lon1 lon2)
   (cond [(empty? lon1) (...)]
@@ -54,7 +50,7 @@ Template
                          (rest lon2)))]))
 ```
 
-Creating the `cond`
+### Creating the `cond`
 
 - For the third case, we have access to the first and rest of `lon1` and `lon2`
 - Don't forget to wrap references in their appropriate functions and to create a natural recursive call, if applicable
@@ -62,13 +58,13 @@ Creating the `cond`
 - Otherwise, if the first of `lon2` does not match, keep the first in `lon1` and compare it to the rest of `lon2`
   - We must find a match in `lon2` before discarding `(first lon1)`!
 
-### Problem 2
+## Problem 2
 
 | **`bt` (right) `p` (down)** | **`false`** | **`(make-node Natural String BinaryTree BinaryTree)`** |
 |-|-|-|
-| **`empty`** | `false` |  `true`
-| **`(cons "L" Path)`** | `false` | either `false` or `true` |
-| **`(cons "R" Path)`** | `false` | either `false` or `true` |
+| **`empty`** | (1) `false` |  (2) `true`
+| **`(cons "L" Path)`** | (1) `false` | (3) natural recursion on left node |
+| **`(cons "R" Path)`** | (1) `false` | (4) natural recursion on right node |
 
 - First case: all `false` cells
 - Second case: the one `true` cell
