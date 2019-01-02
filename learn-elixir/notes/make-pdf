@@ -1,0 +1,7 @@
+#!/bin/bash
+
+fname=$1
+fnamenoext=${fname%.*}
+newext=".pdf"
+
+pandoc $fname -o "pdf-exports/$fnamenoext$newext" -f markdown --template eisvogel --highlight-style kate
