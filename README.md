@@ -7,7 +7,7 @@ Solutions for programming book exercises.
 - Accelerated C++: Practical Programming by Example _by Andrew Koenig, Barbara E. Moo_
 - C++ Primer (5th Edition) _by Stanley B. Lippman, Josée Lajoie, Barbara E. Moo_
 
-## Courses
+## Courses in this repo
 
 - Computing Science 2, Intermediate (Western Canada High School)
 - Computing Science 3, Advanced (Western Canada High School)
@@ -17,5 +17,6 @@ Solutions for programming book exercises.
   - _CSE3320, Dynamic Data Structures 1_
   - _CSE3330, Dynamic Data Structures 2_
   - _CSE3910, CSE Project D_ ([Arduino Pomodoro Study Timer](https://github.com/pseigo/arduino-pomodoro))
-- [CPSC 110](https://edge.edx.org/courses/course-v1:UBC+CPSC110+2018W1/course/) (University of British Columbia)
+- [CPSC 110: Computation, Programs, and Programming](https://sites.google.com/site/ubccpsc110/) (UBC)
+- [CPSC 210: Software Construction](https://sites.google.com/site/ubccpsc210enrol/) (UBC)
 - [LearnElixir.tv](https://www.learnelixir.tv/) (Daniel Berkompas)

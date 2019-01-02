@@ -1,35 +1,81 @@
 #!/bin/bash
-m_num=$1
-m_name=$2
-f_name_suffix=$3
-month_now="$(date +%m)"
-day_now="$(date +%d)"
+if [ \( "$1" = "-h" \) -o \( "$1" = "--help" \) -o \( "$1" = "" \) -o \( "$2" = "" \) -o \( "$3" = "" \) -o \( "$4" = "" \) ]
+then
+    echo Usage: nm [MODULE] [LESSON] [FORMAT_NAME] [FILE_NAME]
+    echo
+    column -t -s "|" nm-help.txt
+else
+    module=$1
+    lesson=$2
+    format_name=$3
+    file_name_title=$4
 
-# filename="m$m_num-$m_name" | tr '[:upper:]' '[:lower:]' | tr ' ' '-'
-filename="m$m_num-$f_name_suffix"
+    folder="/"
+    file_name="u$module-$file_name_title"
+    if [ $module = 1 ]; then
+        folder="m1-basics"
+        file_name="b$lesson-$file_name_title"
+    elif [ $module = 2 ]; then
+        folder="m2-abstraction"
+        file_name="a$lesson-$file_name_title"
+    elif [ $module = 3 ]; then
+        folder="m3-construction"
+        file_name="c$lesson-$file_name_title"
+    elif [ $module = 4 ]; then
+        folder="m4-design"
+        file_name="d$lesson-$file_name_title"
+    else
+        folder="uncategorized"
+        file_name="u$lesson-$file_name_title"
+    fi
 
-# make first char of each word uppercase
-# title_lower=echo $m_name | tr '[:upper:]' '[:lower:]' # all to lower
-# title=( $title_lower ) # an array?
-# title=${title[@]^} # capitalize each element?
-title=$m_name
+    day_now="$(date +%d)"
+    month_now="$(date +%m)"
+    year_now="$(date +%Y)"
 
-echo "NEW MODULE: Module $m_num ($month_now/$day_now)"
+    # make first char of each word uppercase
+    # title_lower=echo $format_name | tr '[:upper:]' '[:lower:]' # all to lower
+    # title=( $title_lower ) # an array?
+    # title=${title[@]^} # capitalize each element?
+    title=$format_name
 
-cd ~/codebase/book-exercises/cpsc210
+    echo "NEW MODULE: Module $module ($month_now/$day_now)"
 
-# make module files
-echo "Copy directory module-template  -> ./course-module/$filename"
-cp -ra ./course-module/module-template ./course-module/$filename
+    cd ~/codebase/book-exercises/cpsc210
 
-echo "Copy template.md -> ./notes-module/$filename.md"
-cp ./notes-module/template.md ./notes-module/"$filename.md"
+    # make module files
+    echo "Copy module-template  -> ./module/$folder/$file_name"
+    cp -ra ./module/module-template ./module/$folder/$file_name
 
-echo "Set fields -> ./notes-module/$filename.md"
-sed -i "s/xx/$m_num/g" ./notes-module/"$filename.md"
-sed -i "s/Title/$title/g" ./notes-module/"$filename.md"
-sed -i "s/MM/$month_now/g" ./notes-module/"$filename.md"
-sed -i "s/DD/$day_now/g" ./notes-module/"$filename.md"
+    echo "Copy template.md -> ./notes-module/$folder/m$module-$file_name.md"
+    cp ./notes-module/template.md ./notes-module/$folder/"m$module-$file_name.md"
 
-echo "Launch Visual Studio Code -> ./notes-module/$filename.md"
-code ./notes-module/"$filename.md"
+    note_module_name="Uncategorized"
+    note_lesson_number=$lesson
+    note_lesson_title=$3
+    if [ $module = 1 ]; then
+        note_module_name="Basics"
+    elif [ $module = 2 ]; then
+        note_module_name="Abstraction"
+    elif [ $module = 3 ]; then
+        note_module_name="Construction"
+    elif [ $module = 4 ]; then
+        note_module_name="Design"
+    fi
+
+    echo "Set fields -> ./notes-module/$folder/m$module-$file_name.md"
+    sed -i "s/MODULENAME/$note_module_name/g" ./notes-module/$folder/"m$module-$file_name.md"
+    sed -i "s/LESSONNUMBER/$note_lesson_number/g" ./notes-module/$folder/"m$module-$file_name.md"
+    sed -i "s/LESSONTITLE/$note_lesson_title/g" ./notes-module/$folder/"m$module-$file_name.md"
+    sed -i "s/TITLE/$title/g" ./notes-module/$folder/"m$module-$file_name.md"
+    sed -i "s/DD/$day_now/g" ./notes-module/$folder/"m$module-$file_name.md"
+    sed -i "s/MM/$month_now/g" ./notes-module/$folder/"m$module-$file_name.md"
+    sed -i "s/YYYY/$year_now/g" ./notes-module/$folder/"m$module-$file_name.md"
+
+    echo "Launch Visual Studio Code -> ./notes-module/$folder/m$module-$file_name.md"
+    code ./notes-module/$folder/"m$module-$file_name.md"
+
+    echo "Launch Explorer -> ./module/$folder/$file_name/starter"
+    cd ./module/$folder/$file_name/starter
+    explorer .
+fi

@@ -1,21 +1,21 @@
 ---
-title: "Module xx: Title"
-subtitle: "CPSC 110"
+title: "MODULENAME LESSONNUMBER: LESSONTITLE"
+subtitle: "CPSC 210"
 author: [Peyton Seigo]
-date: "2018-MM-DD"
+date: "YYYY-MM-DD"
 titlepage: true
 ---
 
-# Module xx: Title
+# MODULENAME LESSONNUMBER: LESSONTITLE
 
 ## Learning goals
 
 - x
 
-## Notes
+## Terminology
 
 - x
 
-## Terminology
+## Notes
 
 - x

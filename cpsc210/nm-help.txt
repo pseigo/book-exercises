@@ -1,0 +1,6 @@
+  PARAMETER|MEANING
+  ---------|-------
+- [MODULE]|Module number: 1->Basics, 2->Abstraction, 3->Construction, 4->Design.
+- [LESSON]|Lesson number that appears in the filename and note heading.
+- [FORMAT_NAME]|Module title to be inserted in note (capitalize).
+- [FILE_NAME]|Title that appears in the filename (use lowercase).

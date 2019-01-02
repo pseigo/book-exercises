@@ -1,7 +1,8 @@
 #!/bin/bash
 lec_num=$1
-month_now="$(date +%m)"
 day_now="$(date +%d)"
+month_now="$(date +%m)"
+year_now="$(date +%Y)"
 
 cd ~/codebase/book-exercises/cpsc210
 
@@ -15,9 +16,10 @@ echo "Copy template.md -> ./notes-lecture/lec$lec_num.md"
 cp ./notes-lecture/template.md ./notes-lecture/lec$lec_num.md
 
 echo "Set fields -> ./notes-lecture/lec$lec_num.md"
-sed -i "s/xx/$lec_num/g" ./notes-lecture/lec$lec_num.md
-sed -i "s/MM/$month_now/g" ./notes-lecture/lec$lec_num.md
+sed -i "s/LECNUM/$lec_num/g" ./notes-lecture/lec$lec_num.md
 sed -i "s/DD/$day_now/g" ./notes-lecture/lec$lec_num.md
+sed -i "s/MM/$month_now/g" ./notes-lecture/lec$lec_num.md
+sed -i "s/YYYY/$year_now/g" ./notes-lecture/lec$lec_num.md
 
 echo "Launch Visual Studio Code -> ./lec/lec$lec_num.md"
 code ./notes-lecture/lec$lec_num.md

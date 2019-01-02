@@ -1,21 +1,17 @@
 ---
-title: "Lecture xx"
+title: "Lecture LECNUM"
 subtitle: "CPSC 210"
 author: [Peyton Seigo]
 date: "YYYY-MM-DD"
 titlepage: true
 ---
 
-# Lecture xx
-
-## Clicker questions
-
-- x
+# Lecture LECNUM
 
 ## Questions
 
 - x
 
-## topic
+## Topic
 
 - x

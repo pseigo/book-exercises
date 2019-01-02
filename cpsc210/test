@@ -1,0 +1,33 @@
+#!/bin/bash
+if [ \( "$1" = "-h" \) -o \( "$1" = "--help" \) -o \( "$1" = "" \) -o \( "$2" = "" \) -o \( "$3" = "" \) -o \( "$4" = "" \) ]
+then
+    echo Usage: nm [MODULE] [LESSON] [FORMAT_NAME] [FILE_NAME]
+    echo
+    column -t -s "|" nm-help.txt
+else
+    module=$1
+    lesson=$2
+    format_name=$3
+    file_name_title=$4
+
+    folder="/"
+    file_name="u$module-$file_name_title"
+    if [ $module = 1 ]; then
+        folder="m1-basics"
+        file_name="b$lesson-$file_name_title"
+    elif [ $module = 2 ]; then
+        folder="m2-abstraction"
+        file_name="a$lesson-$file_name_title"
+    elif [ $module = 3 ]; then
+        folder="m3-construction"
+        file_name="c$lesson-$file_name_title"
+    elif [ $module = 4 ]; then
+        folder="m4-design"
+        file_name="d$lesson-$file_name_title"
+    else
+        folder="uncategorized"
+        file_name="u$lesson-$file_name_title"
+    fi
+
+    echo $folder
+fi
