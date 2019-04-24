@@ -8,9 +8,9 @@ titlepage: true
 
 # Episode 02: Data Types
 
-## Primitive Types
+## Base Types
 
-## Type-Checking Functions
+### Type-Checking Functions
 
 Elixir provides type predicates in the form `is_type(value)`.
 
@@ -18,6 +18,7 @@ Elixir provides type predicates in the form `is_type(value)`.
 is_atom(:hello) # => true
 is_list([1, 2, 3]) # => true
 is_map(%{key: "val"}) # => true
+... # there are way more!
 ```
 
 ### Numbers
@@ -38,7 +39,7 @@ is_map(%{key: "val"}) # => true
 :atom
 :"Contains spaces: and more!"
 nil, true, false
-ModuleName
+ModuleName == :ModuleName
 ```
 
 - `nil`, `true`, `false`, and a `ModuleName` can be written with a colon (`:`) in front because they are atoms.
@@ -61,19 +62,27 @@ in documentation.
 Syntax: `%{key: value, ...}`
 
 ```elixir
+# Atom keys
 episode = %{
- name: "Data types",
- author: "Daniel Berkompas"
+  name: "Data types",
+  author: "Daniel Berkompas"
 }
 
 episode.name # => "Data types"
 episode[:author] # => "Daniel Berkompas"
+
+# String keys
+episode = %{
+  "name" => "Data types",
+  "author" => "Daniel Berkompas"
+}
+
+episode["name"] # => "Data Tytpes"
 ```
 
-- Match operator is used to **bind** a variable to a map.
-- Keys can be atoms OR strings.
-  - e.g. `episode = %{"name": "value"}`
-  - Cannot use `episode.name` syntax. Must use `episode["name"]`.
+- Unordered
+- Keys can be atoms or strings
+  - String keys must be accessed with the `map["key"]` syntax
 
 ### Tuples
 
@@ -101,30 +110,22 @@ Enum.at(list, 1) # => "Beans"
 - Arbitrary size
 - Any combination of types
 - Elixir lists are immutable head/tail pairs (singly-linked list)
-  - **Prepend**: fast, does not change list
-  - **Append**: slow, recreates every element
+  - **Prepend to front**: fast, does not change list
+  - **Append to end**: slow, recreates every element
 
 ```elixir
 # Prepend (add element to front of list)
 list = [1, 2, 3] # => [1, 2, 3]
 [0 | list] # => [0, 1, 2, 3]
 
-## Append (combine two lists)
+## Append (add each element from RH side to end of LH side)
 list ++ [4] # => [1, 2, 3, 4]
 
 ## Insert
 index = 1
 value = 2
 List.insert_at([1, 3, 4], index, value) # => [1, 2, 3, 4]
-# a new list, [1, 2], points to the original [3, 4] due to immutability
-```
-
-### Functions
-
-```elixir
-add = fn(a, b) ->
-  a + b
-end
+# a new list, [1, 2], points to the original [3, 4], which is immutable
 ```
 
 ### Character Lists
@@ -148,8 +149,8 @@ add.(1, 2) # => 3
 ```
 
 - Also known as *anonymous function*, *lambda*, *function literal*, or *closure*.
-- Functions are **first-class values** *(also citizen, type, object, or entity)*: they [can be](https://www.oreilly.com/library/view/learning-scala/9781449368814/ch05.html)
-    1. Created without giving a name
+- Functions are [**first-class values**](https://www.oreilly.com/library/view/learning-scala/9781449368814/ch05.html) *(also citizen, type, object, or entity)*: they can be
+    1. Created without being given a name
     2. Stored in containers such as a value, variable, or data structure
     3. Used as a parameter or return value
 
@@ -178,8 +179,10 @@ attrs[:name] # => "Peyton Seigo"
 attrs[:email] # => "test@example.com"
 ```
 
-- Implemented as a *list*.
-- Thus, it has difference performance characteristics than maps.
+- Keys are atoms
+- Keys are ordered
+- Keys do not have to be unique
+- Implemented as a *list*, thus has difference performance characteristics than a map
 
 ### Structs
 
@@ -199,7 +202,7 @@ attrs[:email] # => "test@example.com"
 ```
 
 - Implemented as a *map*.
-- `__struct__` usually points to a module containing functions operating on the struct.
+- `__struct__` points to a module containing a `defstruct` clause and functions operating on the struct
 
 ### Ranges
 
@@ -207,7 +210,7 @@ attrs[:email] # => "test@example.com"
 # Syntactic sugar
 0..100
 
-# Under the hood
+# Under the hood (a struct)
 %Range{
   first: 0,
   last: 100
@@ -233,5 +236,5 @@ attrs[:email] # => "test@example.com"
 - Tasks
 - Agents
 - Streams
-- HashDicts
-- HashSets
+- `Map` (`HashDict` before deprecation)
+- `MapSet` (`HashSet` before deprecation)

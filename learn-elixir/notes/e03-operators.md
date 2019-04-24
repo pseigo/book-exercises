@@ -25,14 +25,15 @@ titlepage: true
 ### Match Operator
 
 - "`_`" represents a value to be ignored in a pattern
-- use "`^`" to match a variable's value and not rebind it
+- Use "`^`" to match a variable's value and not rebind it
+- Each variable can only be bound once in a match (unless each occurrence binds to the same value)
 
 Use the match operator to make assertions or extract values.
 
 ```elixir
 # Extracting values
 {animal, age} = {"cat", 5}
-%{name: name} = ${name: "Ash", age: 32}
+%{name: name} = %{name: "Ash", age: 32}
 [first|rest] = [1, 2, 3, 4]
 "/pages/" <> page_name = "/pages/home"
 
@@ -40,6 +41,17 @@ Use the match operator to make assertions or extract values.
 {:ok, contents} = File.read("file.txt")
 %Author{} = map_of_unknown_type
 ```
+
+### Arithmetic
+
+Operator | Meaning
+:-: | -
+`+` | Add
+`-` | Subtract
+`*` | Multiply
+`/` | Divide
+`div/2` | Integer division
+`rem/2` | Remainder
 
 ### Equality Operators
 
@@ -69,10 +81,13 @@ Accepts arguments of any type: `||`, `&&`, `!`
   - `||`: return first truthy arg, else return second
   - `&&`: return first falsey arg, else return second
 
+#### Logical OR for defaults
+
+If `user.name` is equal to `nil`, then the name is set to `"John Smith"`. Otherwise, `name` is set to `user.name`.
+
 ```elixir
+user = %{name: nil}
 name = user.name || "John Smith"
-# if user.name === nil, then name => "John Smith"
-# otherwise, name => user.name
 ```
 
 ### List Operators
@@ -82,10 +97,10 @@ The `in` operator asserts whether an element is present in a list.
 ```elixir
 "Name" in ["Some", "Names"] # => false
 "Peyton" in ["Peyton"] # => true
-104 in 'Hello' # => true
+101 in 'Hello' # => true
 ```
 
-Combine two lists with `++` (append, slow).
+Combine two lists with `++` (appending is slow).
 
 ```elixir
 [1, 2, 3] ++ [4] # => [1, 2, 3, 4]
@@ -129,7 +144,7 @@ name = "Peyton"
 
 Compare a binary to a pattern with `=~`.
 
-- RH-side can be a *regex* or a binary
+- RH-side can be a regular expression or a binary
 - Return true if LH-side contains or matches RH-side pattern
 
 ```elixir
