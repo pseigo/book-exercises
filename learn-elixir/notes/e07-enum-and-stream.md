@@ -28,6 +28,10 @@ Typical function signature: `Enum.function(Enumerable, function)`
 - Ranges
 - Streams
 
+### Reminder regarding maps and `Enumerable` functions
+
+Maps act like lists of tuples, where each entry is represented by `{:key, value}`.
+
 ### Functions mentioned at [LearnElixir.tv](https://www.learnelixir.tv/episodes/07-enum-and-stream)
 
 - `Enum.at/2`
