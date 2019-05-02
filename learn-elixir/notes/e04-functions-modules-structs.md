@@ -49,6 +49,14 @@ end
 named_add(1, 2) # => 3
 ```
 
+### Default Arguments
+
+Make default argument values using `\\`:
+
+```elixir
+def fun(arg \\ :default), do: ...
+```
+
 ## Modules
 
 ### Nested Modules
