@@ -8,14 +8,6 @@ titlepage: true
 
 # Episode 09: Sigils
 
-## Summary
-
-- x
-
-## Terminology
-
-- x
-
 ## Sigils
 
 Sigils are a way to create a shorthand.
