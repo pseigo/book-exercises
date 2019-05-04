@@ -10,11 +10,9 @@ titlepage: true
 
 ## Summary
 
-- x
-
-## Terminology
-
-- x
+- Enum
+- Capture operator
+- Streams
 
 ## Enum
 
@@ -87,3 +85,11 @@ Stream is better than enum for
 ### Functions mentioned at [LearnElixir.tv](https://www.learnelixir.tv/episodes/07-enum-and-stream)
 
 - `Stream.cycle/1`
+- `Stream.iterate/2`
+- `Stream.resource/3`
+  - Useful for converting anything into a stream
+  - e.g., paginated data, lines in a file, events on a socket
+  - Resources
+    - [resource/3](https://hexdocs.pm/elixir/Stream.html#resource/3)
+    - [Stream Paginated APIs in Elixir](https://blog.danielberkompas.com/2015/03/28/stream-paginated-apis-in-elixir/)
+    - [Daniel's updated method for paginated APIs](https://github.com/danielberkompas/ex_twilio/blob/371f2b263d763d1459b467d1fbe8783fce825c0e/lib/ex_twilio/result_stream.ex)
