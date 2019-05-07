@@ -20,7 +20,7 @@ titlepage: true
 
 - x
 
-# Processes
+## Processes
 
 - Spawning processes
 - Messaging
