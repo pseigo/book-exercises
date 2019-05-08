@@ -29,17 +29,19 @@ titlepage: true
 
 ## Spawning processes
 
-- New processes are completed isolated.
-- Current process is not affected by spawning a process.
-- NOT O.S. processes; don't have the same downsides with threads. Not computationally expensive.
+
+- Don't share memory--completely isolated from each other
+- Beam process != O.S. process: doesn't have the same downsides with threads; not computationally expensive.
 
 Using the `spawn` function:
 
 ```elixir
+# spawn/1
 spawn fn ->
   IO.puts "This will run in a separate process"
 end
 
+# spawn/3
 spawn SomeModule, :some_function, [arg1, arg2]
 ```
 
@@ -54,13 +56,15 @@ Spawning a process returns a _Process Identifier_, or `pid` (a core Elixir data 
 pid = spawn(fn -> ... end)
 
 # Get the current process's pid with self()
-self
+self()
 
 # Send a message to a process
 send pid, :message
 ```
 
 ## Receiving messages
+
+- Messages stay in mailbox until handled; add a default case to prevent the mailbox from filling up and crashing the process.
 
 Using the `receive` macro:
 
@@ -69,8 +73,8 @@ receive do
   message -> # do something with the message
 end
 ```
-
 Gets the first available message, or if there are none, blocks process until a message is available.
+
 
 `receive` supports pattern matching:
 
@@ -78,16 +82,12 @@ Gets the first available message, or if there are none, blocks process until a m
 receive do
   {:say, msg} ->
     IO.puts(msg)
-
   {:think, msg} ->
     Logger.debug(msg)
-
   _other ->
     # default case
 end
 ```
-
-**Messages that can not be matched are left in the mailbox.** Add a default case to prevent the mailbox from filling up and crashing the process.
 
 Wait only a specified time (in ms) with `after`:
 
@@ -99,6 +99,32 @@ after 500 ->
 end
 ```
 
+### Example
+
+Normally, `receive` will exit after processing a message because there is no work left to do. However, in this example we tell it to call itself recursively after any message is read.
+
+> This is safe because recall that Elixir has tail-call optimization!
+
+```elixir
+defmodule Speaker do
+  def speak() do
+    Process.flag(:trap_exit, true)
+    receive do
+      {:say, msg} ->
+        IO.puts(msg)
+        speak()
+      {:EXIT, from, reason} when is_atom(reason) ->
+        exit_msg = "Received exit signal from pid " <> to_string(from) <> "! (Reason: " <> to_string(reason) <> ")"
+        IO.puts(exit_msg)
+      _other ->
+        speak()
+      end
+    end
+end
+
+pid = spawn(Speaker, :speak, ["Says: "])
+```
+
 ## Killing a process
 
 See [`Process.exit/2`](https://github.com/elixir-lang/elixir/blob/v1.6.4/lib/elixir/lib/process.ex#L143).
@@ -108,7 +134,7 @@ pid = spawn(fn -> ... end)
 Process.exit(pid, :kill)
 ```
 
-By default, if a spawned process dies (either by crash, an error, or manually killing it), the spawner will not be notified. It is completely isolated from the rest of the system.
+By default, if a spawned process dies (either by some error, a full mailbox or being manually killed), the spawner will not be notified. It is completely isolated from the rest of the system.
 
 ## Linking processes together
 
