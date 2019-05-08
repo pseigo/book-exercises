@@ -13,10 +13,6 @@ titlepage: true
 - Mix intro
 - Demo: Mix Project, Mix Tasks
 
-## Terminology
-
-- x
-
 ## Mix
 
 Mix is a Build tool for Elixir
