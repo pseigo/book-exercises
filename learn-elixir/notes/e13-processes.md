@@ -108,14 +108,10 @@ Normally, `receive` will exit after processing a message because there is no wor
 ```elixir
 defmodule Speaker do
   def speak() do
-    Process.flag(:trap_exit, true)
     receive do
       {:say, msg} ->
         IO.puts(msg)
         speak()
-      {:EXIT, from, reason} when is_atom(reason) ->
-        exit_msg = "Received exit signal from pid " <> to_string(from) <> "! (Reason: " <> to_string(reason) <> ")"
-        IO.puts(exit_msg)
       _other ->
         speak()
       end
@@ -123,6 +119,8 @@ defmodule Speaker do
 end
 
 pid = spawn(Speaker, :speak, ["Says: "])
+send(pid, {:say, "some message!")
+# => Says: some message!
 ```
 
 ## Killing a process
@@ -173,8 +171,3 @@ receive do
     # Revive Juliet?
 end
 ```
-
-## Exercises
-
-1. Examine the `pmap` function for performance--compare it to Enum using different data and see which performs quicker.
-2. Create a long-running process and send it messages.
