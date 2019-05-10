@@ -15,10 +15,6 @@ titlepage: true
 - Guards
 - "Static typing" with guards
 
-## Terminology
-
-- x
-
 ## Control flow
 
 Elixir features:
