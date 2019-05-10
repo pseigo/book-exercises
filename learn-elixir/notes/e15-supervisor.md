@@ -28,6 +28,8 @@ Supervision trees enable
 
 ### Simple example
 
+> *Note*: Since Supervisors were revamped in Elixir 1.5, the example below has been deprecated!
+
 ```elixir
 defmodule EpisodeProjects.SupervisorIntro do
   use Supervisor
@@ -42,7 +44,8 @@ defmodule EpisodeProjects.SupervisorIntro do
       worker(ProcessB, [args])
     ]
 
-    supervise(children, strategy: :one_for_one)
+    opts = [strategy: :one_for_one, name: EpisodeProjects.Supervisor]
+    supervise(children, opts)
   end
 end
 ```

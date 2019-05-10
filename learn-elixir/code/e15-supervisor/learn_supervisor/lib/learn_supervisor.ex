@@ -1,6 +1,6 @@
-defmodule TodoListApp do
+defmodule LearnSupervisor do
   @moduledoc """
-  Documentation for TodoListApp.
+  Documentation for LearnSupervisor.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule TodoListApp do
 
   ## Examples
 
-      iex> TodoListApp.hello()
+      iex> LearnSupervisor.hello
       :world
 
   """
