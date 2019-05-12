@@ -1,0 +1,4 @@
+#!/bin/bash
+mix compile
+~/.mix/escripts/ex_doc "TODO" "0.1.0" "_build/dev/lib/todo/ebin/"
+xdg-open "./doc/index.html"
