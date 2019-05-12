@@ -26,29 +26,27 @@ Supervision trees enable
 2. Elegant error recovery
 3. Self-healing systems
 
-### Simple example
+### Elixir 1.5 Changes
 
-> *Note*: Since Supervisors were revamped in Elixir 1.5, the example below has been deprecated!
+> *Note*: Since Supervisors were revamped in Elixir 1.5, the example in the video has been deprecated.
 
-```elixir
-defmodule EpisodeProjects.SupervisorIntro do
-  use Supervisor
+For the new method of using Supervisors, see the [documentation](https://hexdocs.pm/elixir/Supervisor.html) first and the `learn_supervisor` example in this repository.
 
-  def start_link() do
-    Supervisor.start_link(__MODULE__, [])
-  end
+As a result, the code samples for headings past 'Strategies' shown below may be outdated.
 
-  def init([]) do
-    children = [
-      worker(ProcessA, [args]),
-      worker(ProcessB, [args])
-    ]
+## Module-based Supervisors vs. Implicit Supervisors
 
-    opts = [strategy: :one_for_one, name: EpisodeProjects.Supervisor]
-    supervise(children, opts)
-  end
-end
-```
+There are two ways to create a supervisor.
+
+1. Call `Supervisor.start_link/2` with a list of children (automatically initialized)
+    - "A supervisor started with this function is linked to the parent process and exits not only on crashes but also if the parent process exits with `:normal` reason."
+2. Call `Supervisor.start_link/3` in its own module. Children are manually initialized in an `init/1` function
+   1. Create your module (e.g., `Sup`)
+   2. Add `use Supervisor`. This automatically defines `child_spec/1`
+   3. Write `start_link/1` and call `Supervisor.start_link/3`
+   4. Write `@impl true` with `init/1`. Make a list of children and call `Supervisor.init/2`
+
+The [docs](https://hexdocs.pm/elixir/Supervisor.html#module-module-based-supervisors) recommend to make a supervisor without a callback module only at the top of supervision tree. All other supervisors should be module-based for the automatic `child_spec/1`.
 
 ### Strategies
 
@@ -68,7 +66,6 @@ end
 3. Worker processes can have IDs
 4. Supervisors can be supervised
 5. Try a built-in Erlang database for storage
-
 
 ### 1. Mix Project with a Supervisor
 

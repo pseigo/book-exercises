@@ -4,30 +4,43 @@ defmodule LearnSupervisor.Stack do
   """
   use GenServer
 
-  def child_spec(_args) do
+  def child_spec(%{type: :forever}) do
+    name = Module.concat(__MODULE__, :Permanent)
     %{
-      id: __MODULE__, # required
-      start: {__MODULE__, :start_link, []}, # required
+      id: name,
+      start: {__MODULE__, :start_link, [name]},
+      restart: :permanent,
+      shutdown: 5000,
+      type: :worker
+    }
+  end
+
+  def child_spec(_args) do
+    name = Module.concat(__MODULE__, :Temporary)
+    %{
+      id: name,
+      start: {__MODULE__, :start_link, [name]},
       restart: :temporary,
       shutdown: 5000,
       type: :worker
     }
   end
 
-  def start_link(state) do
-    GenServer.start_link(__MODULE__, state, name: __MODULE__)
+  def start_link(name) do
+    state = []
+    GenServer.start_link(__MODULE__, state, name: name)
   end
 
-  def push(element) do
-    GenServer.cast(__MODULE__, {:push, element})
+  def push(name, element) do
+    GenServer.cast(name, {:push, element})
   end
 
-  def pop() do
-    GenServer.call(__MODULE__, :pop)
+  def pop(name) do
+    GenServer.call(name, :pop)
   end
 
-  def get() do
-    GenServer.call(__MODULE__, :get)
+  def get(name) do
+    GenServer.call(name, :get)
   end
 
   ## Callbacks

@@ -1,4 +1,6 @@
 defmodule Todo.Server do
+  @moduledoc false
+
   alias Todo.Item
 
   def init(todos) do
