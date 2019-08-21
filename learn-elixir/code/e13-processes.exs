@@ -7,7 +7,7 @@ defmodule Parallel do
   First, `pmap/2` will immediately call `spawn_process/3` on every element in
   the list. These processes will begin doing their job and may not finish until
   long after each process has started. That is, you might have 10 processes
-  doing some long, tediuous calculation for 10 minutes, way after
+  doing some long, tedious calculation for 10 minutes, way after
   `spawn_process/3` was called on each element.
 
   With small sample sizes, the outcome appears no different than just
@@ -28,8 +28,9 @@ defmodule Parallel do
     end
   end
 
-  # Enum.map calls this in the correct order of the list, so messages are
-  # matched in the correct order
+  # `Enum.map` calls this function on each element in the list from start to
+  # end, in the correct order. That is, `Enummap` waits for the first element
+  # to finish before calling `await/1` on the second element.
   defp await(pid) when is_pid(pid) do
     receive do
       {^pid, result} -> result

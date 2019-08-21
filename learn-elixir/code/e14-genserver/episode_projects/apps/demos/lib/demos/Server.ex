@@ -1,10 +1,10 @@
 defmodule Server do
   @moduledoc """
-  For the home-made `GenServer` demo. Used in conjunction with `Demos.Speaker`.
+  For the homemade `GenServer` demo. Used in conjunction with `Demos.Speaker`.
   """
 
   @spec start(module, any) :: none
-  def start(callback_module, state) do
+  def start(callback_module, state \\ Map.new()) do
     spawn fn ->
       loop(callback_module, self(), state)
     end

@@ -8,18 +8,6 @@ titlepage: true
 
 # Episode 13: Processes
 
-## Summary
-
-- x
-
-## Terminology
-
-- x
-
-## Notes
-
-- x
-
 ## Processes
 
 - Spawning processes
@@ -30,7 +18,7 @@ titlepage: true
 ## Spawning processes
 
 
-- Don't share memory--completely isolated from each other
+- Don't share memory; completely isolated from each other
 - Beam process != O.S. process: doesn't have the same downsides with threads; not computationally expensive.
 
 Using the `spawn` function:
@@ -107,19 +95,19 @@ Normally, `receive` will exit after processing a message because there is no wor
 
 ```elixir
 defmodule Speaker do
-  def speak() do
+  def speak(prefix \\ "") when is_binary(prefix) do
     receive do
-      {:say, msg} ->
-        IO.puts(msg)
-        speak()
+      {:say, msg} when is_binary(msg) ->
+        IO.puts(prefix <> msg)
+        speak(prefix)
       _other ->
-        speak()
+        speak(prefix)
       end
     end
 end
 
 pid = spawn(Speaker, :speak, ["Says: "])
-send(pid, {:say, "some message!")
+send(pid, {:say, "some message!"})
 # => Says: some message!
 ```
 
@@ -142,8 +130,7 @@ Tie two processes together with `spawn_link`. If one process dies, the other wil
 romeo = self
 juliet = spawn_link(fn -> ... end)
 
-# Causes the current process to also exit, because it is linked to the
-# process we are killing.
+# Causes the current process to also exit, because it is linked to the process we are killing.
 Process.exit(juliet, :kill)
 ```
 
