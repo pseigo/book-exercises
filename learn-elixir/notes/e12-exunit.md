@@ -3,7 +3,6 @@ title: "Episode 12: ExUnit"
 subtitle: "Learn Elixir ([https://www.learnelixir.tv/](https://www.learnelixir.tv/))"
 author: [Peyton Seigo]
 date: "2019-05-04"
-titlepage: true
 ---
 
 # Episode 12: ExUnit

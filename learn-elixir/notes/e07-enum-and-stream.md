@@ -3,7 +3,6 @@ title: "Episode 07: Enum and Stream"
 subtitle: "Learn Elixir ([https://www.learnelixir.tv/](https://www.learnelixir.tv/))"
 author: [Peyton Seigo]
 date: "2019-04-30"
-titlepage: true
 ---
 
 # Episode 07: Enum and Stream
@@ -57,7 +56,7 @@ Enum.map(["napoleon", "bonaparte"], &String.upcase/1)
 
 ## Stream
 
-When you call `Stream` functions, you are actually building a struct containng (1) the enumerable and (2) all the functions that will operate on it. This is so that Elixir can do the work all at once at a later time. For example,
+When you call `Stream` functions, you are actually building a struct containing (1) the enumerable and (2) all the functions that will operate on it. This is so that Elixir can do the work all at once at a later time. For example,
 
 ```elixir
 [1, 2, 3, "string"]

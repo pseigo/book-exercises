@@ -3,18 +3,9 @@ title: "Episode 06: Recursion"
 subtitle: "Learn Elixir ([https://www.learnelixir.tv/](https://www.learnelixir.tv/))"
 author: [Peyton Seigo]
 date: "2019-04-24"
-titlepage: true
 ---
 
 # Episode 06: Recursion
-
-## Summary
-
-- x
-
-## Terminology
-
-- x
 
 ## Tips
 

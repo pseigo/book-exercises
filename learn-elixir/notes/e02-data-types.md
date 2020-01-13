@@ -3,7 +3,6 @@ title: "Episode 02: Data Types"
 subtitle: "Learn Elixir ([https://www.learnelixir.tv/](https://www.learnelixir.tv/))"
 author: [Peyton Seigo]
 date: "2018-12-06"
-titlepage: true
 ---
 
 # Episode 02: Data Types
@@ -83,6 +82,11 @@ episode["name"] # => "Data Tytpes"
 - Unordered
 - Keys can be atoms or strings
   - String keys must be accessed with the `map["key"]` syntax
+
+#### Warning About Accessing with `[]` Syntax
+
+> Attention! While the access syntax is allowed in maps via `map[key]`, if your map is made of predefined atom keys, you should prefer to access those atom keys with `map.key` instead of `map[key]`, as `map.key` will raise if the key is missing. This is important because, if a map has a predefined set of keys and a key is missing, it is most likely a bug in your software or a typo on the key name. For this reason, because structs are predefined in nature, they only allow the `struct.key` syntax and they do not allow the `struct[key]` access syntax. See the `Map` module for more information.
+> Source: [Access module documentation](https://hexdocs.pm/elixir/Access.html)
 
 ### Tuples
 

@@ -3,7 +3,6 @@ title: "Episode 08: Comprehensions"
 subtitle: "Learn Elixir ([https://www.learnelixir.tv/](https://www.learnelixir.tv/))"
 author: [Peyton Seigo]
 date: "2019-05-02"
-titlepage: true
 ---
 
 # Episode 08: Comprehensions
@@ -15,10 +14,6 @@ Three main elements of the `for` macro:
 - Generators
 - Filters
 - `:into`
-
-## Terminology
-
-- x
 
 ## `for` macro
 

@@ -3,7 +3,6 @@ title: "Episode 03: Operators"
 subtitle: "Learn Elixir ([https://www.learnelixir.tv/](https://www.learnelixir.tv/))"
 author: [Peyton Seigo]
 date: "2018-12-07"
-titlepage: true
 ---
 
 # Episode 03: Operators

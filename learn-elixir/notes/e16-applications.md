@@ -3,7 +3,6 @@ title: "Episode 16: Applications"
 subtitle: "Learn Elixir ([https://www.learnelixir.tv/](https://www.learnelixir.tv/))"
 author: [Peyton Seigo]
 date: "2019-05-16"
-titlepage: true
 ---
 
 # Episode 16: Applications
@@ -21,6 +20,12 @@ OTP is "buzzword compliant" because it
 - Encourages isolated components
 - Allows these components to run on separate hardware
 - Solves the microservice communication problem
+
+## Useful Documentation
+
+| Resource | Description |
+| - | - |
+| `mix help compile.app` | Mix's OTP configuration options
 
 ## Terminology
 

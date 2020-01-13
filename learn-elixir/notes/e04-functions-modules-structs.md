@@ -3,7 +3,6 @@ title: "Episode 04: Functions, Modules and Structs"
 subtitle: "Learn Elixir ([https://www.learnelixir.tv/](https://www.learnelixir.tv/))"
 author: [Peyton Seigo]
 date: "2019-04-23"
-titlepage: true
 ---
 
 # Episode 04: Functions, Modules and Structs
@@ -29,14 +28,19 @@ titlepage: true
 anon_add = fn(a, b) ->
              a + b
            end
+```
 
+The **Capture Operator** (`&`) is shorthand for anonymous functions.
+
+```elixir
 # Shorthand
+
 anon_add = &(&1 + &2)
 greet = &(IO.puts "Hello, " <> &1 <> "!")
 
 # Calling
 anon_add.(1, 2) # => 3
-greet("Knuth") # => "Hello, Knuth!"
+greet.("Knuth") # => "Hello, Knuth!"
 ```
 
 ### Named Functions

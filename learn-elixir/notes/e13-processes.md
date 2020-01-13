@@ -3,7 +3,6 @@ title: "Episode 13: Processes"
 subtitle: "Learn Elixir ([https://www.learnelixir.tv/](https://www.learnelixir.tv/))"
 author: [Peyton Seigo]
 date: "2019-05-05"
-titlepage: true
 ---
 
 # Episode 13: Processes
@@ -134,7 +133,7 @@ juliet = spawn_link(fn -> ... end)
 Process.exit(juliet, :kill)
 ```
 
-Process death with the `:trap_exit` flag. The current process will receive an `!EXIT` message when the linked process dies (probably a good idea).
+Process death with the `:trap_exit` flag. The current process will receive an `:EXIT` message when the linked process dies (probably a good idea).
 
 ```elixir
 Process.flag(:trap_exit, true)
