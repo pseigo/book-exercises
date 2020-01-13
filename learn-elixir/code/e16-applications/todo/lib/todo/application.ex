@@ -1,4 +1,4 @@
-defmodule Todo do
+defmodule Todo.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -10,7 +10,6 @@ defmodule Todo do
     children = [
       # Starts a worker by calling: Todo.Worker.start_link(arg)
       # {Todo.Worker, arg},
-      Todo.Server
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
