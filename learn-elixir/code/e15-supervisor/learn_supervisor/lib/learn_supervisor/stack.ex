@@ -11,7 +11,6 @@ defmodule LearnSupervisor.Stack do
       start: {__MODULE__, :start_link, [name]},
       restart: :permanent,
       shutdown: 5000,
-      type: :worker
     }
   end
 
@@ -22,7 +21,6 @@ defmodule LearnSupervisor.Stack do
       start: {__MODULE__, :start_link, [name]},
       restart: :temporary,
       shutdown: 5000,
-      type: :worker
     }
   end
 
