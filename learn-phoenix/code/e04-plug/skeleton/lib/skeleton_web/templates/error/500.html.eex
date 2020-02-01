@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= render(SkeletonWeb.PageView, "html_head.html", conn: @conn) %>
+  </head>
+  <body>
+    <%= render(SkeletonWeb.PageView, "header.html", conn: @conn) %>
+
+    <main role="main" class="container">
+      <div class="phx-hero">
+        <h1>500 error, something broke!</h1>
+        <img src="<%= Routes.static_path(@conn, "/images/ufo-cat.svg") %>" style="max-width: 70%;" alt="Space cat being beamed up by a UFO!">
+        <p>Well this is embarassing... something went wrong on our end, sorry!</p>
+        <a href="">Return home</a>
+      </div>
+    </main>
+
+    <%= render(SkeletonWeb.PageView, "footer_includes.html", conn: @conn) %>
+  </body>
+</html>

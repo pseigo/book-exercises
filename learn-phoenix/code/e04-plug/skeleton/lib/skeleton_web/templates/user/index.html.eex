@@ -1,0 +1,12 @@
+<div class="phx-hero">
+  <h2>User index</h2>
+  <p>
+    Need some logic to... 
+    <ul>
+      <li>Get all users from a database</li>
+      <li>Get each user's profile info like name, photo, etc.</li>
+      <li>Add a link to their profile based on their username</li>
+      <li>Lay out each user in a list</li>
+    </ul>
+  </p>
+</div>

@@ -1,0 +1,37 @@
+#!/bin/bash
+e_number=$1
+
+e_name=$2
+title=$e_name
+
+e_name_file=$3
+filename="e$e_number-$e_name_file"
+
+year_now="$(date +%Y)"
+month_now="$(date +%m)"
+day_now="$(date +%d)"
+
+echo "NEW EPISODE: Episode $e_number ($year_now/$month_now/$day_now)"
+
+cd ~/codebase/book-exercises/learn-phoenix/
+
+# make file for this episode
+echo "Create code file ./code/$filename"
+touch ./code/$filename.exs
+
+# make and format note for this episode
+echo "Copy ./templates/note-template.md -> ./notes/$filename.md"
+cp ./templates/note-template.md ./notes/"$filename.md"
+
+echo "Set fields for ./notes/$filename.md"
+sed -i "s/xx/$e_number/g" ./notes/"$filename.md"
+sed -i "s/Title/$title/g" ./notes/"$filename.md"
+sed -i "s/YYYY/$year_now/g" ./notes/"$filename.md"
+sed -i "s/MM/$month_now/g" ./notes/"$filename.md"
+sed -i "s/DD/$day_now/g" ./notes/"$filename.md"
+
+#echo "Launch Visual Studio Code with ./notes/$filename.md"
+#code ./notes/"$filename.md"
+
+#echo "Launch Visual Studio Code with ./code/$filename.exs"
+#code ./code/"$filename.exs"

@@ -1,0 +1,6 @@
+<div class="phx-hero">
+  <h2>Now showing Hello's messenger value</h2>
+
+  <%# Could use @messenger or assigns.messenger, the first is just nicer to work with %>
+  <p><%= assigns.messenger  %></p>
+</div>

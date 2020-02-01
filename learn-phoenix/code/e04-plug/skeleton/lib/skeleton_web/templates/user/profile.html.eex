@@ -1,0 +1,6 @@
+<div class="phx-hero">
+  <h2><%= @username %>'s profile</h2>
+  <p><strong>Status: </strong><i>No status</i></p>
+  <p>Need some logic to validate whether a user exists b/c we're gonna have to look up their info and display it here</p>
+  <p>If they don't exist, redirect to a 404 or a 'user does not exist' page</p>
+</div>
