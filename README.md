@@ -20,3 +20,4 @@ Solutions for programming book exercises.
 - [CPSC 110: Computation, Programs, and Programming](https://sites.google.com/site/ubccpsc110/) (UBC)
 - [CPSC 210: Software Construction](https://sites.google.com/site/ubccpsc210enrol/) (UBC)
 - [LearnElixir.tv](https://www.learnelixir.tv/) (Daniel Berkompas)
+- [LearnPhoenix.tv](https://www.learnphoenix.tv/) (Daniel Berkompas)
