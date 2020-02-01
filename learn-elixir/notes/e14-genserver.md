@@ -59,6 +59,6 @@ If none of these cases apply, try using a struct or other data structure.
 >
 > This is an anti-pattern not only because it convolutes the logic [and] puts [it] behind a single process that will potentially become a bottleneck in your system, especially as the number of calls grow.
 >
-> If you don't need a process, then you don't need a process. Use processes only to model runtime properties, such as mutable state, concurrency and failures, never for code organization.
+> If you don't need a process, then you don't need a process. Use processes only to model **runtime properties, such as mutable state, concurrency and failures**, never for code organization.
 >
 > _source: [When (not) to use a GenServer](https://hexdocs.pm/elixir/GenServer.html#module-when-not-to-use-a-genserver)_

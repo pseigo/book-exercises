@@ -27,10 +27,6 @@ OTP is "buzzword compliant" because it
 | - | - |
 | `mix help compile.app` | Mix's OTP configuration options
 
-## Terminology
-
-- x
-
 ## Notes
 
 - x

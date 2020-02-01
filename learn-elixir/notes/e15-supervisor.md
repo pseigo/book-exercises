@@ -47,6 +47,58 @@ There are two ways to create a supervisor.
 
 The [docs](https://hexdocs.pm/elixir/Supervisor.html#module-module-based-supervisors) recommend to make a supervisor without a callback module only at the top of supervision tree. All other supervisors should be module-based for the automatic `child_spec/1`.
 
+## Examples
+
+### Implicit Supervisors
+
+```elixir
+# todo
+```
+
+### Module-based Supervisors
+
+```elixir
+# todo
+```
+
+### Implicit DynamicSupervisors
+
+#Source: [DynamicSupervisor -- Examples](https://hexdocs.pm/elixir/DynamicSupervisor.html#module-examples)
+
+```elixir
+defmodule MyApp.DynamicSupervisor do
+  use Supervisor
+
+  def start_link(init_arg) do
+    children = [
+      {DynamicSupervisor, strategy: :one_for_one, name: __MODULE__}
+    ]
+
+    Supervisor.start_link(children, strategy: :one_for_one)
+  end
+end
+```
+
+### Module-based DynamicSupervisors
+
+Source: [DynamicSupervisor -- Module-based supervisors](https://hexdocs.pm/elixir/DynamicSupervisor.html#module-module-based-supervisors)
+
+```elixir
+defmodule MyApp.DynamicSupervisor do
+  # Automatically defines child_spec/1
+  use DynamicSupervisor
+
+  def start_link(init_arg) do
+    DynamicSupervisor.start_link(__MODULE__, init_arg, name: __MODULE__)
+  end
+
+  @impl true
+  def init(_init_arg) do
+    DynamicSupervisor.init(strategy: :one_for_one)
+  end
+end
+```
+
 ## Specifications
 
 Since Elixir 1.9. Subject to change.
