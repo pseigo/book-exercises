@@ -35,7 +35,6 @@ Start your Phoenix app with:
 You can also run your app inside IEx (Interactive Elixir) as:
 
     $ iex -S mix phx.server
-
 ```
 
 ## Troubleshooting webpack install problems
@@ -62,9 +61,9 @@ npm ERR! nospc Clear up some disk space and try again.
 
 First I tried clearing the cache with `npm cache clear --force`, but that didn't work.
 
-Then I tried `npm install --no-bin-links` with and without `--no-link` but no luck. 
+Then I tried `npm install --no-bin-links` with and without `--no-link` but no luck.
 
-I assumed at this point it was a VM issue. In vmware, you have to add `sharedFolder0.followSymlinks = "TRUE"` to the VM's `.vmx` file after each of the `sharedFolderX` entries. See https://kb.vmware.com/s/article/2045026. 
+I assumed at this point it was a VM issue. In vmware, you have to add `sharedFolder0.followSymlinks = "TRUE"` to the VM's `.vmx` file after each of the `sharedFolderX` entries. See https://kb.vmware.com/s/article/2045026.
 
 But alas, this did not fix it either. I just decided to make my projects without webpack. Maybe I'll try it later!
 
