@@ -7,6 +7,10 @@ date: "2019-05-04"
 
 # Episode 12: ExUnit
 
+## Resources
+
+- [Mocking and faking external dependencies in elixir tests](https://thoughtbot.com/blog/mocking-and-faking-external-dependencies-in-elixir-tests)
+
 ## Starting ExUnit
 
 - ExUnit needs to run and manage multiple BEAM processes to run tests, so they must be started.
