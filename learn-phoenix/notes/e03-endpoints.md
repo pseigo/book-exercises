@@ -6,9 +6,8 @@ date: "2020-01-19"
 titlepage: true
 ---
 
-# Episode 03: Endpoints
-
 ## Summary
 
 - Can supervise endpoints and have multiple endpoints for different ports
 - The Phoenix guides talk about [how to use SSL](https://hexdocs.pm/phoenix/endpoint.html#using-ssl)
+- Sockets endpoints are defined here

@@ -1,13 +1,11 @@
 ---
-title: "Episode 03: Installing Phoenix"
+title: "Episode 01: Installing Phoenix"
 subtitle: "Learn Phoenix ([https://www.learnphoenix.tv/](https://www.learnphoenix.tv/))"
 author: [Peyton Seigo]
 date: "2020-01-18"
 
 titlepage: true
 ---
-
-# Episode 03: Installing Phoenix
 
 ## Notes
 

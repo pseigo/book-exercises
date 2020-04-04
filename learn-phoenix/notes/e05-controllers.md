@@ -6,19 +6,23 @@ date: "2020-01-19"
 titlepage: true
 ---
 
+## Controllers
+
+Controllers are intemediary modules between the router and views. They define "action" functions invoked from the router.
+
 ## Standard action names
 
 ```elixir
 def action_name(conn, params), do: ...
 ```
 
-- index - renders a list of all items of the given resource type
-- show - renders an individual item by id
-- new - renders a form for creating a new item
-- create - receives params for one new item and saves it in a datastore
-- edit - retrieves an individual item by id and displays it in a form for editing
-- update - receives params for one edited item and saves it to a datastore
-- delete - receives an id for an item to be deleted and deletes it from a datastore
+- **index** - renders a list of all items of the given resource type
+- **show** - renders an individual item by id
+- **new** - renders a form for creating a new item
+- **create** - receives params for one new item and saves it in a da**tastore**
+- **edit** - retrieves an individual item by id and displays it in a form for editing
+- **update** - receives params for one edited item and saves it to a datastore
+- **delete** - receives an id for an item to be deleted and deletes it from a datastore
 
 ## Data access
 

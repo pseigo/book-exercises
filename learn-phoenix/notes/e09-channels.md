@@ -6,9 +6,10 @@ date: "2020-02-06"
 titlepage: true
 ---
 
-## Summary
+## Specifications
 
-- x
+- [RFC 793 - TCP](https://tools.ietf.org/html/rfc793)
+- [RFC 6455 - WebSocket Protocol](https://tools.ietf.org/html/rfc6455)
 
 ## Terminology
 

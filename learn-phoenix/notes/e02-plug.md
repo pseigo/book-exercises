@@ -1,16 +1,10 @@
 ---
-title: "Episode 04: Plug"
+title: "Episode 02: Plug"
 subtitle: "Learn Phoenix ([https://www.learnphoenix.tv/](https://www.learnphoenix.tv/))"
 author: [Peyton Seigo]
 date: "2020-01-18"
 titlepage: true
 ---
-
-## Summary
-
--
-
-## Terminology
 
 ## Notes
 

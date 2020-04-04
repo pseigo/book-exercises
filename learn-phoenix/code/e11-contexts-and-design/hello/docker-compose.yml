@@ -1,0 +1,17 @@
+# See https://docs.docker.com/compose/compose-file/
+version: "3.7"
+services:
+  postgres:
+    container_name: hello-db
+    image: postgres:12.2
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres" # ${POSTGRES_USER}
+      POSTGRES_PASSWORD: "postgres" # ${POSTGRES_PASSWORD} 
+      POSTGRES_DB: "hello_dev"
+
+volumes:
+  db-data:

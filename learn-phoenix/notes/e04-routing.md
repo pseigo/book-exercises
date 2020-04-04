@@ -6,8 +6,6 @@ date: "2020-01-19"
 titlepage: true
 ---
 
-# Episode 04: Routing
-
 ## Summary
 
 "Routing is a big topic, and we have covered a lot of ground here. The important points to take away from this guide are:

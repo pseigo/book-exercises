@@ -8,7 +8,9 @@ titlepage: true
 
 ## Rendering templates
 
-To-do; see the docs.
+To-do; see the docs ([views](https://hexdocs.pm/phoenix/views.html), [templates](https://hexdocs.pm/phoenix/templates.html)).
+
+JavaScript client [documentation](https://hexdocs.pm/phoenix/js/index.html) and [NPM package](https://www.npmjs.com/package/phoenix).
 
 ## The ErrorView
 
