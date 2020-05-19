@@ -6,14 +6,10 @@ date: "2020-02-06"
 titlepage: true
 ---
 
-## Summary
+## Phoenix Presence
 
-- x
+Sync presence information between all nodes:
 
-## Terminology
-
-- x
-
-## Notes
-
-- x
+- Automatically
+- Without a central data store (e.g., Redis)
+- With strong [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency) ([CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type))

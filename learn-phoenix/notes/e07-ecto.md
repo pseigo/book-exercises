@@ -40,10 +40,6 @@ titlepage: true
   - A lot of apps use Redis for server-side caching, but consider ETS first when using Elixir!
 - **Mnesia** - hybrid relational/object database optimized for high-availability
 
-## Terminology
-
-- x
-
 ## Ecto overview
 
 Ecto is split into 4 main components:
