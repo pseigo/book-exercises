@@ -3,9 +3,11 @@
 ## Resources
 
 - [Codepen](https://codepen.io/pseigo/pen/KKdrxzy)
+  - Alt: 'Flexbox Playground' on [Webmaker](https://webmaker.app/app/)
 - [Flexbox Spec](https://www.w3.org/TR/css-flexbox-1/)
 - [Article: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [Mozilla: Flexbox](https://developer.mozilla.org/en-US/docs/Glossary/Flexbox)
+  - _[Offline doc](https://devdocs.io/css/css_flexible_box_layout)_
 
 ## Terminology and main concepts
 
